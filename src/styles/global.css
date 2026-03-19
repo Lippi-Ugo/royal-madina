@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+.info-card {
+	background: transparent;
+	border: 2px solid rgba(0, 0, 0, 0.35);
+	border-radius: 2.25rem;
+	padding: 2.25rem;
+}
+
+.map-dark {
+	filter: grayscale(1) invert(0.92) hue-rotate(180deg) brightness(0.72) contrast(1.05);
+}
