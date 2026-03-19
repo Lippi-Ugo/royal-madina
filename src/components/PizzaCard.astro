@@ -1,0 +1,40 @@
+---
+import type { PizzasRecord } from "../pocketbase-types";
+import ImgPb from "./ImgPb.astro";
+
+interface Props {
+    pizza: PizzasRecord;
+}
+
+const { pizza } = Astro.props;
+---
+
+<article class="group relative flex flex-col h-full">
+    <div class="mx-auto w-full max-w-105 flex-1 flex flex-col">
+        <div id="product-card-image-wrapper" class="aspect-square">
+            <ImgPb
+                record={pizza}
+                field="image"
+                classPicture="w-full h-full"
+                classImg="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                thumb="800x800"
+            />
+        </div>
+        <h2
+            class="mt-3 sm:mt-8 font-bold text-gray-900 text-lg sm:text-2xl md:text-4xl leading-tight uppercase text-center"
+        >
+            {pizza.nom || "Pizza"}
+        </h2>
+        <p
+            class="mt-2 sm:mt-5 text-sm sm:text-base md:text-xl text-gray-700 text-center line-clamp-2 sm:line-clamp-none flex-1"
+        >
+            {pizza.description || "Description non disponible"}
+        </p>
+    </div>
+
+    <button
+        class="mt-4 sm:mt-7 w-full bg-[#c9302c] hover:bg-[#a02622] text-white py-2 sm:py-3 rounded-full font-bold text-sm sm:text-lg transition-colors"
+    >
+        COMMANDER
+    </button>
+</article>
