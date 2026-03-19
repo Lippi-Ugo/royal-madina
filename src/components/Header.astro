@@ -1,0 +1,117 @@
+<header
+    class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm"
+>
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div
+                class="w-10 h-10 bg-[#c9302c] rounded-full flex items-center justify-center"
+            >
+                <span class="text-white font-bold text-lg">RM</span>
+            </div>
+            <span class="text-xl font-bold text-gray-900">ROYAL MADINA</span>
+        </div>
+        <nav
+            id="mobile-menu-panel"
+            class="hidden absolute left-4 right-4 top-full mt-3 rounded-2xl border border-black/10 bg-white shadow-lg p-3 flex-col gap-1 sm:static sm:mt-0 sm:border-0 sm:bg-transparent sm:shadow-none sm:p-0 sm:flex sm:flex-row sm:items-center sm:gap-8"
+        >
+            <a
+                href="/#carte"
+                class="mobile-menu-link block w-full sm:w-auto px-3 py-2 rounded-xl text-gray-700 hover:bg-[#f5e6d3] hover:text-[#c9302c] transition-colors font-medium sm:px-0 sm:py-0 sm:rounded-none sm:hover:bg-transparent"
+                >Menu</a
+            >
+            <a
+                href="/histoire"
+                class="mobile-menu-link block w-full sm:w-auto px-3 py-2 rounded-xl text-gray-700 hover:bg-[#f5e6d3] hover:text-[#c9302c] transition-colors font-medium sm:px-0 sm:py-0 sm:rounded-none sm:hover:bg-transparent"
+                >Notre Histoire</a
+            >
+            <a
+                href="/#contact"
+                class="mobile-menu-link block w-full sm:w-auto px-3 py-2 rounded-xl text-gray-700 hover:bg-[#f5e6d3] hover:text-[#c9302c] transition-colors font-medium sm:px-0 sm:py-0 sm:rounded-none sm:hover:bg-transparent"
+                >Contact</a
+            >
+        </nav>
+        <div class="flex items-center gap-4">
+            <button class="relative">
+                <svg
+                    class="w-6 h-6 text-gray-700"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                </svg>
+                <span
+                    class="absolute -top-2 -right-2 bg-[#c9302c] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+                    >0</span
+                >
+            </button>
+
+            <button
+                id="mobile-menu-button"
+                type="button"
+                class="sm:hidden w-10 h-10 rounded-full border-2 border-gray-200 bg-white flex items-center justify-center"
+                aria-label="Ouvrir le menu"
+                aria-controls="mobile-menu-panel"
+                aria-expanded="false"
+            >
+                <svg
+                    class="w-5 h-5 text-gray-700"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+<div class="h-18"></div>
+
+<script>
+    const menuButton = document.getElementById("mobile-menu-button");
+    const menuPanel = document.getElementById("mobile-menu-panel");
+    const menuLinks = document.querySelectorAll(".mobile-menu-link");
+
+    const closeMenu = () => {
+        if (!menuPanel || !menuButton) return;
+        if (window.matchMedia("(min-width: 640px)").matches) return;
+        menuPanel.classList.add("hidden");
+        menuButton.setAttribute("aria-expanded", "false");
+    };
+
+    if (menuButton && menuPanel) {
+        menuButton.addEventListener("click", () => {
+            if (window.matchMedia("(min-width: 640px)").matches) return;
+            const isHidden = menuPanel.classList.contains("hidden");
+            menuPanel.classList.toggle("hidden");
+            menuButton.setAttribute(
+                "aria-expanded",
+                isHidden ? "true" : "false",
+            );
+        });
+
+        menuLinks.forEach((link) => {
+            link.addEventListener("click", closeMenu);
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.matchMedia("(min-width: 640px)").matches) {
+                menuPanel.classList.remove("hidden");
+                menuButton.setAttribute("aria-expanded", "false");
+            } else {
+                menuPanel.classList.add("hidden");
+                menuButton.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
+</script>
