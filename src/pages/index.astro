@@ -5,6 +5,7 @@ import BoissonCard from "../components/BoissonCard.astro";
 import type { PizzasRecord, BoissonsRecord } from "../pocketbase-types";
 import FondHero from "../assets/fond-hero.webp";
 import Hero from "../assets/pizza-hero.webp";
+import HalalLogo from "../assets/hallal_logo.svg";
 
 // Récupérer PocketBase depuis le middleware
 const pb = Astro.locals.pb;
@@ -178,11 +179,15 @@ const pizzasVenduesMois = itemsCommande.reduce((total, item) => {
 					BOISSONS
 				</button>
 				<div
-					class="w-20 h-20 ml-6 flex items-center justify-center rounded-full border-2 border-[#d4b896] bg-[#f5e6d3] text-[9px] font-bold text-center leading-tight"
+					class="w-16 h-16 sm:w-20 sm:h-20 ml-2 sm:ml-6 flex items-center justify-center"
 				>
-					100% CERTIFIED
+					<img
+						src={HalalLogo.src}
+						alt="Halal certifié"
+						class="w-full h-full"
+					/>
 				</div>
-				<div class="text-5xl font-bold text-gray-900 ml-2">
+				<div class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 ml-2">
 					HALAL FOOD
 				</div>
 			</div>
