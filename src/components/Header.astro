@@ -11,7 +11,9 @@ import logo from "../assets/logo-rm.svg";
             class="flex items-center gap-3 hover:opacity-80 transition-opacity"
         >
             <img src={logo.src} alt="Royal Madina" class="w-10 h-10" />
-            <span class="text-xl font-bold text-gray-900">ROYAL MADINA</span>
+            <span class="hidden sm:inline text-xl font-bold text-gray-900"
+                >ROYAL MADINA</span
+            >
         </a>
         <nav
             id="mobile-menu-panel"
@@ -32,6 +34,21 @@ import logo from "../assets/logo-rm.svg";
                 class="mobile-menu-link block w-full sm:w-auto px-3 py-2 rounded-xl text-gray-700 hover:bg-[#f5e6d3] hover:text-[#c9302c] transition-colors font-medium sm:px-0 sm:py-0 sm:rounded-none sm:hover:bg-transparent"
                 >Contact</a
             >
+            <div class="sm:hidden border-t border-gray-200 mt-2 pt-2">
+                <a
+                    id="link-connexion-mobile"
+                    href="/connexion"
+                    class="mobile-menu-link block w-full px-3 py-2 rounded-xl text-[#c9302c] hover:bg-[#f5e6d3] transition-colors font-medium"
+                >
+                    Connexion
+                </a>
+                <button
+                    id="btn-logout-mobile"
+                    class="hidden mobile-menu-link block w-full px-3 py-2 rounded-xl text-[#c9302c] hover:bg-[#f5e6d3] transition-colors font-medium text-left"
+                >
+                    Déconnexion
+                </button>
+            </div>
         </nav>
         <div class="flex items-center gap-4">
             <a
@@ -57,7 +74,10 @@ import logo from "../assets/logo-rm.svg";
                 >
             </a>
 
-            <div id="auth-section" class="flex items-center gap-2 sm:gap-4">
+            <div
+                id="auth-section"
+                class="hidden sm:flex items-center gap-2 sm:gap-4"
+            >
                 <a
                     id="link-connexion"
                     href="/connexion"
@@ -163,20 +183,24 @@ import logo from "../assets/logo-rm.svg";
 
     // Gestion de l'authentification
     const linkConnexion = document.getElementById("link-connexion");
+    const linkConnexionMobile = document.getElementById(
+        "link-connexion-mobile",
+    );
     const userMenu = document.getElementById("user-menu");
     const userDisplay = document.getElementById(
         "user-display",
     ) as HTMLSpanElement;
-    const userAvatar = document.getElementById(
-        "user-avatar",
-    ) as HTMLImageElement;
     const btnLogout = document.getElementById("btn-logout");
+    const btnLogoutMobile = document.getElementById("btn-logout-mobile");
 
     // Enregistrer la page actuelle avant d'aller à connexion
-    linkConnexion?.addEventListener("click", () => {
+    const registerReturnPage = () => {
         const currentPage = window.location.pathname + window.location.search;
         sessionStorage.setItem("returnTo", currentPage);
-    });
+    };
+
+    linkConnexion?.addEventListener("click", registerReturnPage);
+    linkConnexionMobile?.addEventListener("click", registerReturnPage);
 
     const updateAuthStatus = () => {
         const token = localStorage.getItem("auth_token");
@@ -184,33 +208,39 @@ import logo from "../assets/logo-rm.svg";
         const userNom = localStorage.getItem("user_nom");
 
         if (token && (userPrenom || userNom)) {
+            // Desktop
             linkConnexion?.classList.add("hidden");
             userMenu?.classList.remove("hidden");
             userMenu?.classList.add("flex");
-
-            // Afficher le nom si pas d'avatar via AvatarUser
             userDisplay.textContent =
                 `${userPrenom || ""} ${userNom || ""}`.trim();
+
+            // Mobile
+            linkConnexionMobile?.classList.add("hidden");
+            btnLogoutMobile?.classList.remove("hidden");
         } else {
+            // Desktop
             linkConnexion?.classList.remove("hidden");
             userMenu?.classList.add("hidden");
             userMenu?.classList.remove("flex");
+
+            // Mobile
+            linkConnexionMobile?.classList.remove("hidden");
+            btnLogoutMobile?.classList.add("hidden");
         }
     };
 
     updateAuthStatus();
     window.addEventListener("storage", updateAuthStatus);
 
-    // Déconnexion
-    btnLogout?.addEventListener("click", async () => {
-        // Appeler l'API de logout si disponible
+    // Fonction de déconnexion commune
+    const handleLogout = async () => {
         try {
             await fetch("/api/logout", { method: "POST" });
         } catch (e) {
             console.log("Logout API not available");
         }
 
-        // Nettoyer localStorage
         localStorage.removeItem("auth_token");
         localStorage.removeItem("user_email");
         localStorage.removeItem("user_prenom");
@@ -218,7 +248,12 @@ import logo from "../assets/logo-rm.svg";
         localStorage.removeItem("user_avatar");
         localStorage.removeItem("user_id");
 
-        // Recharger la page
         window.location.href = "/";
-    });
+    };
+
+    // Déconnexion desktop
+    btnLogout?.addEventListener("click", handleLogout);
+
+    // Déconnexion mobile
+    btnLogoutMobile?.addEventListener("click", handleLogout);
 </script>
