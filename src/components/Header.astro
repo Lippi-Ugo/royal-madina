@@ -1,5 +1,6 @@
 ---
 import ImgPb from "./ImgPb.astro";
+const { personne } = Astro.props;
 ---
 
 <header
@@ -68,10 +69,12 @@ import ImgPb from "./ImgPb.astro";
                 </a>
                 <div id="user-menu" class="items-center gap-1 sm:gap-2 hidden">
                     <ImgPb
-                        id="user-avatar"
-                        src=""
+                        record={personne}
+                        field="avatar"
                         alt="Avatar"
-                        class="hidden w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-[#c9302c]"
+                        classPicture="hidden w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-[#c9302c]"
+                        classImg="w-full h-full rounded-full object-cover"
+                        thumb="100x100"
                     />
                     <span
                         id="user-display"
