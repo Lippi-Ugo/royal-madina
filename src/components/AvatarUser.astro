@@ -11,13 +11,15 @@ const { user } = Astro.props;
 
 {
     user && (
-        <ImgPb
-            record={user}
-            field="avatar"
-            alt="Avatar"
-            classPicture="w-8 h-8 sm:w-10 sm:h-10"
-            classImg="rounded-full object-cover border-2 border-[#c9302c]"
-            thumb="100x100"
-        />
+        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-[#c9302c]">
+            <ImgPb
+                record={user}
+                field="avatar"
+                alt="Avatar"
+                classPicture="w-full h-full"
+                classImg="w-full h-full object-cover"
+                thumb="100x100"
+            />
+        </div>
     )
 }
