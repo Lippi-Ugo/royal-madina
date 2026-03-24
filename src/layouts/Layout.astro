@@ -6,7 +6,6 @@ interface Props {
 	titre: string;
 }
 const { titre } = Astro.props;
-const user = Astro.locals.user || null;
 ---
 
 <!doctype html>
@@ -42,7 +41,7 @@ const user = Astro.locals.user || null;
 		/>
 	</head>
 	<body class="font-sans antialiased">
-		<Header personne={user} />
+		<Header />
 
 		<slot />
 		<Footer />
