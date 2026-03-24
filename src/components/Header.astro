@@ -1,5 +1,5 @@
 ---
-import ImgPb from "./ImgPb.astro";
+import AvatarUser from "./AvatarUser.astro";
 import type { UsersRecord } from "../pocketbase-types";
 interface Props {
     personne: UsersRecord | null;
@@ -72,18 +72,7 @@ const { personne } = Astro.props;
                     Connexion
                 </a>
                 <div id="user-menu" class="items-center gap-1 sm:gap-2 hidden">
-                    {
-                        personne?.avatar && (
-                            <ImgPb
-                                record={personne}
-                                field="avatar"
-                                alt="Avatar"
-                                classPicture="w-8 h-8 sm:w-10 sm:h-10"
-                                classImg="rounded-full object-cover border-2 border-[#c9302c]"
-                                thumb="100x100"
-                            />
-                        )
-                    }
+                    <AvatarUser user={personne} />
                     <span
                         id="user-display"
                         class="text-gray-700 font-semibold text-sm sm:text-base"

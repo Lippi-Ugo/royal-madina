@@ -6,7 +6,7 @@ interface Props {
 	titre: string;
 }
 const { titre } = Astro.props;
-const user = Astro.locals.user;
+const user = Astro.locals.user || null;
 ---
 
 <!doctype html>

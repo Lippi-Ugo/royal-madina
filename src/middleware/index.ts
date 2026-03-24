@@ -20,12 +20,7 @@ export const onRequest = defineMiddleware(async ({ locals, request, isPrerendere
 
     const response = await next();
 
-    if (!isPrerendered) {
-        // Récupérer l'utilisateur authentifié
-        if (locals.pb.authStore.isValid) {
-            locals.user = locals.pb.authStore.model;
-        }
-        // send back the default 'pb_auth' cookie to the client with the latest store state
+    if (!isPrerendered) {// send back the default 'pb_auth' cookie to the client with the latest store state
         response.headers.append('set-cookie', locals.pb.authStore.exportToCookie());
     }
 

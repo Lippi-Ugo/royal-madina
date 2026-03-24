@@ -1,0 +1,23 @@
+---
+import ImgPb from "./ImgPb.astro";
+import type { UsersRecord } from "../pocketbase-types";
+
+interface Props {
+    user: UsersRecord | null;
+}
+
+const { user } = Astro.props;
+---
+
+{
+    user && (
+        <ImgPb
+            record={user}
+            field="avatar"
+            alt="Avatar"
+            classPicture="w-8 h-8 sm:w-10 sm:h-10"
+            classImg="rounded-full object-cover border-2 border-[#c9302c]"
+            thumb="100x100"
+        />
+    )
+}
