@@ -1,7 +1,5 @@
 ---
-import ImgPb from "./ImgPb.astro";
 
-const user = Astro.locals.user;
 ---
 
 <header
@@ -64,41 +62,27 @@ const user = Astro.locals.user;
                 <a
                     id="link-connexion"
                     href="/connexion"
-                    class={`${user ? "hidden" : ""} text-[#c9302c] hover:underline font-semibold text-sm sm:text-base`}
+                    class="hidden text-[#c9302c] hover:underline font-semibold text-sm sm:text-base"
                 >
                     Connexion
                 </a>
-                <div
-                    id="user-menu"
-                    class={`items-center gap-1 sm:gap-2 ${user ? "flex" : "hidden"}`}
-                >
-                    {
-                        user && (
-                            <>
-                                {user.avatar && (
-                                    <ImgPb
-                                        record={user}
-                                        field="avatar"
-                                        alt="Avatar"
-                                        classPicture="w-8 h-8 sm:w-10 sm:h-10"
-                                        classImg="rounded-full object-cover border-2 border-[#c9302c]"
-                                    />
-                                )}
-                                <span
-                                    id="user-display"
-                                    class="text-gray-700 font-semibold text-sm sm:text-base"
-                                >
-                                    {user.prenom || ""} {user.nom || ""}
-                                </span>
-                                <button
-                                    id="btn-logout"
-                                    class="text-[#c9302c] hover:underline font-semibold text-sm sm:text-base"
-                                >
-                                    Déconnexion
-                                </button>
-                            </>
-                        )
-                    }
+                <div id="user-menu" class="items-center gap-1 sm:gap-2 hidden">
+                    <img
+                        id="user-avatar"
+                        src=""
+                        alt="Avatar"
+                        class="hidden w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-[#c9302c]"
+                    />
+                    <span
+                        id="user-display"
+                        class="text-gray-700 font-semibold text-sm sm:text-base"
+                    ></span>
+                    <button
+                        id="btn-logout"
+                        class="text-[#c9302c] hover:underline font-semibold text-sm sm:text-base"
+                    >
+                        Déconnexion
+                    </button>
                 </div>
             </div>
 
@@ -184,15 +168,56 @@ const user = Astro.locals.user;
     window.addEventListener("panier-updated", updatePanierCount);
     window.addEventListener("storage", updatePanierCount);
 
-    // Gestion de la déconnexion
+    // Gestion de l'authentification
+    const linkConnexion = document.getElementById("link-connexion");
+    const userMenu = document.getElementById("user-menu");
+    const userDisplay = document.getElementById(
+        "user-display",
+    ) as HTMLSpanElement;
+    const userAvatar = document.getElementById(
+        "user-avatar",
+    ) as HTMLImageElement;
     const btnLogout = document.getElementById("btn-logout");
 
-    btnLogout?.addEventListener("click", async () => {
-        try {
-            await fetch("/api/logout", { method: "POST" });
-        } catch (error) {
-            console.error("Erreur logout:", error);
+    // Enregistrer la page actuelle avant d'aller à connexion
+    linkConnexion?.addEventListener("click", () => {
+        const currentPage = window.location.pathname + window.location.search;
+        sessionStorage.setItem("returnTo", currentPage);
+    });
+
+    const updateAuthStatus = () => {
+        const token = localStorage.getItem("auth_token");
+        const userPrenom = localStorage.getItem("user_prenom");
+        const userNom = localStorage.getItem("user_nom");
+        const userAvatarUrl = localStorage.getItem("user_avatar");
+
+        if (token && (userPrenom || userNom)) {
+            linkConnexion?.classList.add("hidden");
+            userMenu?.classList.remove("hidden");
+            userMenu?.classList.add("flex");
+
+            // Afficher avatar si existe, sinon prénom+nom
+            if (userAvatarUrl) {
+                userAvatar.src = userAvatarUrl;
+                userAvatar.classList.remove("hidden");
+                userDisplay.textContent = "";
+            } else {
+                userAvatar.classList.add("hidden");
+                userDisplay.textContent =
+                    `${userPrenom || ""} ${userNom || ""}`.trim();
+            }
+        } else {
+            linkConnexion?.classList.remove("hidden");
+            userMenu?.classList.add("hidden");
+            userMenu?.classList.remove("flex");
         }
+    };
+
+    updateAuthStatus();
+    window.addEventListener("storage", updateAuthStatus);
+
+    // Déconnexion
+    btnLogout?.addEventListener("click", () => {
         localStorage.removeItem("auth_token");
         localStorage.removeItem("user_email");
         localStorage.removeItem("user_prenom");
