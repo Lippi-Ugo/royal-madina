@@ -1,5 +1,9 @@
 ---
 import ImgPb from "./ImgPb.astro";
+import type {UsersRecord} from "../pocketbase-types";
+interface Props {
+    personne: UsersRecord | null;
+}
 const { personne } = Astro.props;
 ---
 
