@@ -1,0 +1,242 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FondHero from "../assets/fond-hero.webp";
+---
+
+<Layout titre="Panier">
+    <section
+        class="relative overflow-hidden min-h-96 flex items-center bg-cover bg-center bg-no-repeat"
+        style={`background-image: url(${FondHero.src});`}
+    >
+        <div class="absolute inset-0 bg-[#f5e6d3]/70"></div>
+        <div class="container mx-auto px-4 py-16 relative z-10">
+            <h1 class="text-6xl font-bold text-gray-900">MON PANIER</h1>
+        </div>
+    </section>
+
+    <section class="bg-[#f5e6d3] py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <div
+                        id="panier-vide"
+                        class="text-center py-12 bg-white rounded-3xl border-2 border-[#d4b896]"
+                    >
+                        <svg
+                            class="w-16 h-16 mx-auto mb-4 text-gray-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                            ></path>
+                        </svg>
+                        <p class="text-xl text-gray-600 font-semibold">
+                            Ton panier est vide
+                        </p>
+                        <a
+                            href="/#carte"
+                            class="inline-block mt-6 bg-[#c9302c] hover:bg-[#a02622] text-white px-8 py-3 rounded-full font-semibold transition-colors"
+                        >
+                            Retour à la carte
+                        </a>
+                    </div>
+
+                    <div id="panier-items" class="space-y-4 hidden"></div>
+                </div>
+
+                <div class="lg:col-span-1">
+                    <div
+                        class="bg-white rounded-3xl border-2 border-[#d4b896] p-8 sticky top-8"
+                    >
+                        <h3 class="text-2xl font-bold mb-6">RÉSUMÉ</h3>
+
+                        <div
+                            class="space-y-4 mb-6 pb-6 border-b-2 border-[#d4b896]"
+                        >
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Sous-total</span>
+                                <span id="sous-total" class="font-bold"
+                                    >0.00€</span
+                                >
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Livraison</span>
+                                <span id="livraison" class="font-bold"
+                                    >0.00€</span
+                                >
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between mb-8">
+                            <span class="text-xl font-bold">TOTAL</span>
+                            <span
+                                id="total"
+                                class="text-3xl font-bold text-[#c9302c]"
+                                >0.00€</span
+                            >
+                        </div>
+
+                        <button
+                            id="btn-payer"
+                            class="w-full bg-[#c9302c] hover:bg-[#a02622] text-white px-8 py-4 rounded-full font-bold text-lg transition-colors"
+                            data-empty="true"
+                        >
+                            VALIDER MA COMMANDE
+                        </button>
+
+                        <a
+                            href="/#carte"
+                            class="block text-center mt-4 text-[#c9302c] hover:underline font-semibold"
+                        >
+                            Continuer les achats
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    interface PanierItem {
+        type: "pizza" | "boisson";
+        id: string;
+        nom: string;
+        prix: number;
+        quantite: number;
+    }
+
+    const panierVide = document.getElementById("panier-vide");
+    const panierItems = document.getElementById("panier-items");
+    const btnPayer = document.getElementById("btn-payer");
+    const sousTotal = document.getElementById("sous-total");
+    const livraison = document.getElementById("livraison");
+    const total = document.getElementById("total");
+
+    const PRIX_LIVRAISON = 0;
+
+    const getPanier = (): PanierItem[] => {
+        const raw = localStorage.getItem("panier");
+        return raw ? JSON.parse(raw) : [];
+    };
+
+    const savePanier = (items: PanierItem[]) => {
+        localStorage.setItem("panier", JSON.stringify(items));
+    };
+
+    const updateTotal = () => {
+        const items = getPanier();
+        const sousT = items.reduce(
+            (sum, item) => sum + item.prix * item.quantite,
+            0,
+        );
+        const totalAmount = items.length > 0 ? sousT + PRIX_LIVRAISON : 0;
+
+        sousTotal!.textContent = sousT.toFixed(2) + "€";
+        livraison!.textContent =
+            items.length > 0 ? PRIX_LIVRAISON.toFixed(2) + "€" : "0.00€";
+        total!.textContent = totalAmount.toFixed(2) + "€";
+
+        const isEmpty = items.length === 0;
+        btnPayer!.dataset.empty = String(isEmpty);
+        btnPayer!.style.opacity = isEmpty ? "0.5" : "1";
+        btnPayer!.style.cursor = isEmpty ? "not-allowed" : "pointer";
+    };
+
+    const renderPanier = () => {
+        const items = getPanier();
+
+        if (items.length === 0) {
+            panierVide!.classList.remove("hidden");
+            panierItems!.classList.add("hidden");
+        } else {
+            panierVide!.classList.add("hidden");
+            panierItems!.classList.remove("hidden");
+
+            panierItems!.innerHTML = items
+                .map(
+                    (item, idx) => `
+				<div class="bg-white rounded-3xl border-2 border-[#d4b896] p-6 flex justify-between items-center">
+					<div class="flex-1">
+						<h4 class="text-xl font-bold text-gray-900">${item.nom}</h4>
+						<p class="text-gray-600 text-sm">${item.type === "pizza" ? "Pizza" : "Boisson"}</p>
+					</div>
+					<div class="flex items-center gap-4">
+						<div class="flex items-center gap-2 bg-[#f5e6d3] rounded-full px-4 py-2">
+							<button class="decrement-btn text-[#c9302c] font-bold" data-index="${idx}">−</button>
+							<span class="font-bold w-8 text-center">${item.quantite}</span>
+							<button class="increment-btn text-[#c9302c] font-bold" data-index="${idx}">+</button>
+						</div>
+						<span class="font-bold text-lg w-20 text-right">${(item.prix * item.quantite).toFixed(2)}€</span>
+						<button class="delete-btn text-gray-400 hover:text-[#c9302c] transition-colors" data-index="${idx}">
+							<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+							</svg>
+						</button>
+					</div>
+				</div>
+			`,
+                )
+                .join("");
+
+            document.querySelectorAll(".increment-btn").forEach((btn) => {
+                btn.addEventListener("click", (e) => {
+                    const idx = Number((e.target as HTMLElement).dataset.index);
+                    const items = getPanier();
+                    items[idx].quantite++;
+                    savePanier(items);
+                    renderPanier();
+                    updateTotal();
+                });
+            });
+
+            document.querySelectorAll(".decrement-btn").forEach((btn) => {
+                btn.addEventListener("click", (e) => {
+                    const idx = Number((e.target as HTMLElement).dataset.index);
+                    const items = getPanier();
+                    if (items[idx].quantite > 1) {
+                        items[idx].quantite--;
+                        savePanier(items);
+                        renderPanier();
+                        updateTotal();
+                    }
+                });
+            });
+
+            document.querySelectorAll(".delete-btn").forEach((btn) => {
+                btn.addEventListener("click", (e) => {
+                    const idx = Number((e.target as HTMLElement).dataset.index);
+                    const items = getPanier();
+                    items.splice(idx, 1);
+                    savePanier(items);
+                    renderPanier();
+                    updateTotal();
+                    window.dispatchEvent(new Event("panier-updated"));
+                });
+            });
+        }
+
+        updateTotal();
+    };
+
+    btnPayer?.addEventListener("click", async () => {
+        const items = getPanier();
+        if (items.length === 0 || btnPayer!.dataset.empty === "true") return;
+
+        // Vérifier si connecté
+        const token = localStorage.getItem("auth_token");
+        if (!token) {
+            window.location.href = "/connexion";
+            return;
+        }
+
+        window.location.href = "/commande";
+    });
+
+    renderPanier();
+</script>

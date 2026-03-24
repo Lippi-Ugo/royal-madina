@@ -1,0 +1,57 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import FondHero from "../../assets/fond-hero.webp";
+---
+
+<Layout titre="Paiement Annulé">
+    <section
+        class="relative overflow-hidden min-h-screen flex items-center bg-cover bg-center bg-no-repeat"
+        style={`background-image: url(${FondHero.src});`}
+    >
+        <div class="absolute inset-0 bg-[#f5e6d3]/70"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div
+                class="max-w-2xl mx-auto bg-white rounded-3xl p-12 border-2 border-[#d4b896]"
+            >
+                <div class="text-center">
+                    <svg
+                        class="w-24 h-24 mx-auto mb-8 text-gray-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 14l-2-2m0 0l-2-2m2 2l2-2m-2-2l-2 2m10-10l-2 2m0 0l-2-2m2 2l2-2m-2-2l-2 2"
+                        ></path>
+                    </svg>
+
+                    <h1 class="text-5xl font-bold text-gray-900 mb-4">
+                        Paiement annulé
+                    </h1>
+
+                    <p class="text-xl text-gray-600 mb-8">
+                        Votre paiement a été annulé. Votre panier est conservé.
+                    </p>
+
+                    <div class="space-y-4">
+                        <a
+                            href="/panier"
+                            class="block bg-[#c9302c] hover:bg-[#a02622] text-white px-8 py-4 rounded-full font-bold text-lg transition-colors"
+                        >
+                            Retour au panier
+                        </a>
+                        <a
+                            href="/#carte"
+                            class="block border-2 border-[#c9302c] text-[#c9302c] hover:bg-[#c9302c] hover:text-white px-8 py-4 rounded-full font-bold text-lg transition-colors"
+                        >
+                            Continuer les achats
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
