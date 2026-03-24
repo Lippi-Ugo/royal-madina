@@ -75,504 +75,500 @@ const pizzasVenduesMois = itemsCommande.reduce((total, item) => {
 				<!-- Contenu gauche -->
 				<div class="z-10">
 					<div
-						class="inline-flex items-center justify-center bg-white rounded-full mb-10 p-1"
+						class="inline-flex items-center gap-2 px-3 py-1 bg-white rounded-full mb-10"
 					>
-						<img src={HalalLogo.src} alt="Halal" class="w-5 h-5" />
-
-						<h1
-							class="text-5xl md:text-6xl font-bold text-gray-900 mb-8"
+						<svg
+							class="w-5 h-5"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
 						>
-							Le goût de la tradition<br />
-							<span class="text-[#c9302c]">chaque soirs !!</span>
-						</h1>
+							<path
+								d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"></path>
+						</svg>
+						<span class="text-sm font-medium">HALAL FOOD</span>
+					</div>
 
-						<p class="text-gray-700 text-lg mb-12 max-w-lg">
-							Découvrez nos pizzas artisanales préparées avec
-							passion chaque soir. Ingrédients frais, pâte faite
-							maison, cuisson au four traditionnel.
-						</p>
+					<h1
+						class="text-5xl md:text-6xl font-bold text-gray-900 mb-8"
+					>
+						Le goût de la tradition<br />
+						<span class="text-[#c9302c]">chaque soirs !!</span>
+					</h1>
 
-						<div class="flex flex-wrap gap-4 mb-8">
-							<a
-								href="#carte"
-								class="bg-[#c9302c] hover:bg-[#a02622] text-white px-8 py-4 rounded-full font-semibold transition-colors flex items-center gap-2"
+					<p class="text-gray-700 text-lg mb-12 max-w-lg">
+						Découvrez nos pizzas artisanales préparées avec passion
+						chaque soir. Ingrédients frais, pâte faite maison,
+						cuisson au four traditionnel.
+					</p>
+
+					<div class="flex flex-wrap gap-4 mb-8">
+						<a
+							href="#carte"
+							class="bg-[#c9302c] hover:bg-[#a02622] text-white px-8 py-4 rounded-full font-semibold transition-colors flex items-center gap-2"
+						>
+							Commander maintenant
+							<svg
+								class="w-5 h-5"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
 							>
-								Commander maintenant
-								<svg
-									class="w-5 h-5"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M9 5l7 7-7 7"></path>
-								</svg>
-							</a>
-						</div>
-
-						<div class="flex gap-8 text-sm">
-							<div>
-								<div class="text-2xl font-bold text-[#c9302c]">
-									{pizzasVenduesMois}
-								</div>
-								<div class="text-gray-600">
-									Pizzas vendues/mois
-								</div>
-							</div>
-							<div>
-								<div class="text-2xl font-bold text-[#c9302c]">
-									4.8 ★
-								</div>
-								<div class="text-gray-600">Note moyenne</div>
-							</div>
-							<div>
-								<div class="text-2xl font-bold text-[#c9302c]">
-									{pizzas.length}
-								</div>
-								<div class="text-gray-600">
-									Variétés de pizzas
-								</div>
-							</div>
-						</div>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M9 5l7 7-7 7"></path>
+							</svg>
+						</a>
 					</div>
 
-					<!-- Image pizza -->
-					<div class="relative z-10">
-						<img
-							src={Hero.src}
-							alt="Pizza"
-							class="w-[95%] max-w-125 sm:w-[110%] sm:max-w-150 md:w-[135%] md:max-w-200 mx-auto drop-shadow-2xl"
-						/>
+					<div class="flex gap-8 text-sm">
+						<div>
+							<div class="text-2xl font-bold text-[#c9302c]">
+								{pizzasVenduesMois}
+							</div>
+							<div class="text-gray-600">Pizzas vendues/mois</div>
+						</div>
+						<div>
+							<div class="text-2xl font-bold text-[#c9302c]">
+								4.8 ★
+							</div>
+							<div class="text-gray-600">Note moyenne</div>
+						</div>
+						<div>
+							<div class="text-2xl font-bold text-[#c9302c]">
+								{pizzas.length}
+							</div>
+							<div class="text-gray-600">Variétés de pizzas</div>
+						</div>
 					</div>
+				</div>
+
+				<!-- Image pizza -->
+				<div class="relative z-10">
+					<img
+						src={Hero.src}
+						alt="Pizza"
+						class="w-[95%] max-w-125 sm:w-[110%] sm:max-w-150 md:w-[135%] md:max-w-200 mx-auto drop-shadow-2xl"
+					/>
 				</div>
 			</div>
 		</div>
+	</section>
 
-		<!-- Section Carte -->
-		<section id="carte" class="bg-[#f5e6d3] py-16 relative overflow-hidden">
-			<div class="container mx-auto px-4 relative z-10">
-				<h2 class="text-6xl font-bold text-gray-900 mb-12">CARTE</h2>
+	<!-- Section Carte -->
+	<section id="carte" class="bg-[#f5e6d3] py-16 relative overflow-hidden">
+		<div class="container mx-auto px-4 relative z-10">
+			<h2 class="text-6xl font-bold text-gray-900 mb-12">CARTE</h2>
 
-				<div
-					class="flex gap-4 mb-12 justify-start items-center flex-wrap"
+			<div class="flex gap-4 mb-12 justify-start items-center flex-wrap">
+				<button
+					id="pizzas-tab"
+					class="px-8 py-3 rounded-full font-semibold bg-[#c9302c] text-white transition-colors"
 				>
+					PIZZAS
+				</button>
+				<button
+					id="boissons-tab"
+					class="px-8 py-3 rounded-full font-semibold bg-white text-gray-900 transition-colors"
+				>
+					BOISSONS
+				</button>
+				<div
+					class="w-16 h-16 sm:w-20 sm:h-20 ml-2 sm:ml-6 flex items-center justify-center"
+				>
+					<img
+						src={HalalLogo.src}
+						alt="Halal certifié"
+						class="w-full h-full"
+					/>
+				</div>
+				<div
+					class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 ml-2"
+				>
+					HALAL FOOD
+				</div>
+			</div>
+
+			<div id="pizzas-pane" class="grid md:grid-cols-2 gap-8 items-start">
+				<div class="space-y-4 hidden md:block">
+					{
+						pizzas.map((pizza, index) => (
+							<button
+								type="button"
+								data-index={index}
+								class={`pizza-item w-full rounded-full px-8 py-4 flex justify-between items-center border-2 border-[#d4b896] transition-colors ${index >= 5 ? "hidden" : ""} ${index === 0 ? "bg-[#c9302c] text-white" : "bg-transparent text-gray-900 hover:bg-[#c9302c] hover:text-white"}`}
+							>
+								<span class="font-semibold uppercase text-lg">
+									{pizza.nom}
+								</span>
+								<span class="font-bold text-lg">
+									{pizza.prix?.toFixed(2)}€
+								</span>
+							</button>
+						))
+					}
 					<button
-						id="pizzas-tab"
-						class="px-8 py-3 rounded-full font-semibold bg-[#c9302c] text-white transition-colors"
+						id="voir-plus-pizzas"
+						type="button"
+						class="w-full py-4 border-2 border-[#c9302c] bg-transparent rounded-full hover:bg-[#c9302c] hover:text-white transition-colors font-semibold text-gray-900 mt-6"
 					>
-						PIZZAS
+						VOIR PLUS DE PIZZAS
 					</button>
-					<button
-						id="boissons-tab"
-						class="px-8 py-3 rounded-full font-semibold bg-white text-gray-900 transition-colors"
-					>
-						BOISSONS
-					</button>
-					<div
-						class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center"
-					>
-						<img
-							src={HalalLogo.src}
-							alt="Halal certifié"
-							class="w-full h-full"
-						/>
-					</div>
 				</div>
 
-				<div
-					id="pizzas-pane"
-					class="grid md:grid-cols-2 gap-8 items-start"
-				>
-					<div class="space-y-4 hidden md:block">
-						{
-							pizzas.map((pizza, index) => (
-								<button
-									type="button"
-									data-index={index}
-									class={`pizza-item w-full rounded-full px-8 py-4 flex justify-between items-center border-2 border-[#d4b896] transition-colors ${index >= 5 ? "hidden" : ""} ${index === 0 ? "bg-[#c9302c] text-white" : "bg-transparent text-gray-900 hover:bg-[#c9302c] hover:text-white"}`}
-								>
-									<span class="font-semibold uppercase text-lg">
-										{pizza.nom}
-									</span>
-									<span class="font-bold text-lg">
-										{pizza.prix?.toFixed(2)}€
-									</span>
-								</button>
-							))
-						}
-						<button
-							id="voir-plus-pizzas"
-							type="button"
-							class="w-full py-4 border-2 border-[#c9302c] bg-transparent rounded-full hover:bg-[#c9302c] hover:text-white transition-colors font-semibold text-gray-900 mt-6"
-						>
-							VOIR PLUS DE PIZZAS
-						</button>
-					</div>
+				<div class="pt-2 hidden md:block">
+					{
+						pizzas.map((pizza, index) => (
+							<div
+								class={`pizza-card-panel ${index === 0 ? "block" : "hidden"}`}
+							>
+								<PizzaCard pizza={pizza} />
+							</div>
+						))
+					}
+				</div>
 
-					<div class="pt-2 hidden md:block">
+				<div class="md:hidden -mx-4 px-4 overflow-x-auto">
+					<div
+						class="flex gap-4 snap-x snap-mandatory pb-2 items-stretch"
+					>
 						{
-							pizzas.map((pizza, index) => (
-								<div
-									class={`pizza-card-panel ${index === 0 ? "block" : "hidden"}`}
-								>
+							pizzas.map((pizza) => (
+								<div class="snap-center shrink-0 w-[88%]">
 									<PizzaCard pizza={pizza} />
 								</div>
 							))
 						}
 					</div>
+				</div>
+			</div>
 
-					<div class="md:hidden -mx-4 px-4 overflow-x-auto">
-						<div
-							class="flex gap-4 snap-x snap-mandatory pb-2 items-stretch"
-						>
-							{
-								pizzas.map((pizza) => (
-									<div class="snap-center shrink-0 w-[88%]">
-										<PizzaCard pizza={pizza} />
-									</div>
-								))
-							}
-						</div>
-					</div>
+			<div
+				id="boissons-pane"
+				class="grid md:grid-cols-2 gap-8 items-start"
+				style="display: none;"
+			>
+				<div class="space-y-4 hidden md:block">
+					{
+						boissons.map((boisson, index) => (
+							<button
+								type="button"
+								data-index={index}
+								class={`boisson-item w-full rounded-full px-8 py-4 flex justify-between items-center border-2 border-[#d4b896] transition-colors ${index >= 5 ? "hidden" : ""} ${index === 0 ? "bg-[#c9302c] text-white" : "bg-transparent text-gray-900 hover:bg-[#c9302c] hover:text-white"}`}
+							>
+								<span class="font-semibold uppercase text-lg">
+									{boisson.nom}
+								</span>
+								<span class="font-bold text-lg">
+									{boisson.prix?.toFixed(2)}€
+								</span>
+							</button>
+						))
+					}
+					<button
+						id="voir-plus-boissons"
+						type="button"
+						class="w-full py-4 border-2 border-[#c9302c] bg-transparent rounded-full hover:bg-[#c9302c] hover:text-white transition-colors font-semibold text-gray-900 mt-6"
+					>
+						VOIR PLUS DE BOISSONS
+					</button>
 				</div>
 
-				<div
-					id="boissons-pane"
-					class="grid md:grid-cols-2 gap-8 items-start"
-					style="display: none;"
-				>
-					<div class="space-y-4 hidden md:block">
-						{
-							boissons.map((boisson, index) => (
-								<button
-									type="button"
-									data-index={index}
-									class={`boisson-item w-full rounded-full px-8 py-4 flex justify-between items-center border-2 border-[#d4b896] transition-colors ${index >= 5 ? "hidden" : ""} ${index === 0 ? "bg-[#c9302c] text-white" : "bg-transparent text-gray-900 hover:bg-[#c9302c] hover:text-white"}`}
-								>
-									<span class="font-semibold uppercase text-lg">
-										{boisson.nom}
-									</span>
-									<span class="font-bold text-lg">
-										{boisson.prix?.toFixed(2)}€
-									</span>
-								</button>
-							))
-						}
-						<button
-							id="voir-plus-boissons"
-							type="button"
-							class="w-full py-4 border-2 border-[#c9302c] bg-transparent rounded-full hover:bg-[#c9302c] hover:text-white transition-colors font-semibold text-gray-900 mt-6"
-						>
-							VOIR PLUS DE BOISSONS
-						</button>
-					</div>
+				<div class="pt-2 hidden md:block">
+					{
+						boissons.map((boisson, index) => (
+							<div
+								class={`boisson-card-panel ${index === 0 ? "block" : "hidden"}`}
+							>
+								<BoissonCard boisson={boisson} />
+							</div>
+						))
+					}
+				</div>
 
-					<div class="pt-2 hidden md:block">
+				<div class="md:hidden -mx-4 px-4 overflow-x-auto">
+					<div
+						class="flex gap-4 snap-x snap-mandatory pb-2 items-stretch"
+					>
 						{
-							boissons.map((boisson, index) => (
-								<div
-									class={`boisson-card-panel ${index === 0 ? "block" : "hidden"}`}
-								>
+							boissons.map((boisson) => (
+								<div class="snap-center shrink-0 w-[88%]">
 									<BoissonCard boisson={boisson} />
 								</div>
 							))
 						}
 					</div>
-
-					<div class="md:hidden -mx-4 px-4 overflow-x-auto">
-						<div
-							class="flex gap-4 snap-x snap-mandatory pb-2 items-stretch"
-						>
-							{
-								boissons.map((boisson) => (
-									<div class="snap-center shrink-0 w-[88%]">
-										<BoissonCard boisson={boisson} />
-									</div>
-								))
-							}
-						</div>
-					</div>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<script>
-			const pizzasTab = document.getElementById("pizzas-tab");
-			const boissonsTab = document.getElementById("boissons-tab");
-			const pizzasPane = document.getElementById("pizzas-pane");
-			const boissonsPane = document.getElementById("boissons-pane");
-			const voirPlusPizzas = document.getElementById("voir-plus-pizzas");
-			const voirPlusBoissons =
-				document.getElementById("voir-plus-boissons");
+	<script>
+		const pizzasTab = document.getElementById("pizzas-tab");
+		const boissonsTab = document.getElementById("boissons-tab");
+		const pizzasPane = document.getElementById("pizzas-pane");
+		const boissonsPane = document.getElementById("boissons-pane");
+		const voirPlusPizzas = document.getElementById("voir-plus-pizzas");
+		const voirPlusBoissons = document.getElementById("voir-plus-boissons");
 
-			const selectItem = (
-				itemClass: string,
-				panelClass: string,
-				activeIndex: number,
-			) => {
-				const items = document.querySelectorAll<HTMLElement>(
-					`.${itemClass}`,
-				);
-				const panels = document.querySelectorAll<HTMLElement>(
-					`.${panelClass}`,
-				);
+		const selectItem = (
+			itemClass: string,
+			panelClass: string,
+			activeIndex: number,
+		) => {
+			const items = document.querySelectorAll<HTMLElement>(
+				`.${itemClass}`,
+			);
+			const panels = document.querySelectorAll<HTMLElement>(
+				`.${panelClass}`,
+			);
 
-				items.forEach((item, index) => {
-					if (index === activeIndex) {
-						item.classList.add("bg-[#c9302c]", "text-white");
-						item.classList.remove(
-							"bg-transparent",
-							"text-gray-900",
-						);
-					} else {
-						item.classList.remove("bg-[#c9302c]", "text-white");
-						item.classList.add("bg-transparent", "text-gray-900");
-					}
-				});
-
-				panels.forEach((panel, index) => {
-					if (index === activeIndex) {
-						panel.classList.remove("hidden");
-						panel.classList.add("block");
-					} else {
-						panel.classList.remove("block");
-						panel.classList.add("hidden");
-					}
-				});
-			};
-
-			pizzasTab?.addEventListener("click", () => {
-				if (pizzasPane) pizzasPane.style.display = "grid";
-				if (boissonsPane) boissonsPane.style.display = "none";
-
-				pizzasTab.classList.add("bg-[#c9302c]", "text-white");
-				pizzasTab.classList.remove("bg-white", "text-gray-900");
-				boissonsTab?.classList.remove("bg-[#c9302c]", "text-white");
-				boissonsTab?.classList.add("bg-white", "text-gray-900");
+			items.forEach((item, index) => {
+				if (index === activeIndex) {
+					item.classList.add("bg-[#c9302c]", "text-white");
+					item.classList.remove("bg-transparent", "text-gray-900");
+				} else {
+					item.classList.remove("bg-[#c9302c]", "text-white");
+					item.classList.add("bg-transparent", "text-gray-900");
+				}
 			});
 
-			boissonsTab?.addEventListener("click", () => {
-				if (boissonsPane) boissonsPane.style.display = "grid";
-				if (pizzasPane) pizzasPane.style.display = "none";
+			panels.forEach((panel, index) => {
+				if (index === activeIndex) {
+					panel.classList.remove("hidden");
+					panel.classList.add("block");
+				} else {
+					panel.classList.remove("block");
+					panel.classList.add("hidden");
+				}
+			});
+		};
 
-				boissonsTab.classList.add("bg-[#c9302c]", "text-white");
-				boissonsTab.classList.remove("bg-white", "text-gray-900");
-				pizzasTab?.classList.remove("bg-[#c9302c]", "text-white");
-				pizzasTab?.classList.add("bg-white", "text-gray-900");
+		pizzasTab?.addEventListener("click", () => {
+			if (pizzasPane) pizzasPane.style.display = "grid";
+			if (boissonsPane) boissonsPane.style.display = "none";
+
+			pizzasTab.classList.add("bg-[#c9302c]", "text-white");
+			pizzasTab.classList.remove("bg-white", "text-gray-900");
+			boissonsTab?.classList.remove("bg-[#c9302c]", "text-white");
+			boissonsTab?.classList.add("bg-white", "text-gray-900");
+		});
+
+		boissonsTab?.addEventListener("click", () => {
+			if (boissonsPane) boissonsPane.style.display = "grid";
+			if (pizzasPane) pizzasPane.style.display = "none";
+
+			boissonsTab.classList.add("bg-[#c9302c]", "text-white");
+			boissonsTab.classList.remove("bg-white", "text-gray-900");
+			pizzasTab?.classList.remove("bg-[#c9302c]", "text-white");
+			pizzasTab?.classList.add("bg-white", "text-gray-900");
+		});
+
+		document
+			.querySelectorAll<HTMLElement>(".pizza-item")
+			.forEach((item) => {
+				item.addEventListener("click", () => {
+					const index = Number(item.dataset.index || 0);
+					selectItem("pizza-item", "pizza-card-panel", index);
+				});
 			});
 
+		document
+			.querySelectorAll<HTMLElement>(".boisson-item")
+			.forEach((item) => {
+				item.addEventListener("click", () => {
+					const index = Number(item.dataset.index || 0);
+					selectItem("boisson-item", "boisson-card-panel", index);
+				});
+			});
+
+		let pizzasExpanded = false;
+		let boissonsExpanded = false;
+
+		voirPlusPizzas?.addEventListener("click", () => {
+			pizzasExpanded = !pizzasExpanded;
 			document
 				.querySelectorAll<HTMLElement>(".pizza-item")
-				.forEach((item) => {
-					item.addEventListener("click", () => {
-						const index = Number(item.dataset.index || 0);
-						selectItem("pizza-item", "pizza-card-panel", index);
-					});
+				.forEach((item, index) => {
+					if (index >= 5) {
+						item.classList.toggle("hidden", !pizzasExpanded);
+					}
 				});
+			voirPlusPizzas.textContent = pizzasExpanded
+				? "VOIR MOINS DE PIZZAS"
+				: "VOIR PLUS DE PIZZAS";
+		});
 
+		voirPlusBoissons?.addEventListener("click", () => {
+			boissonsExpanded = !boissonsExpanded;
 			document
 				.querySelectorAll<HTMLElement>(".boisson-item")
-				.forEach((item) => {
-					item.addEventListener("click", () => {
-						const index = Number(item.dataset.index || 0);
-						selectItem("boisson-item", "boisson-card-panel", index);
-					});
+				.forEach((item, index) => {
+					if (index >= 5) {
+						item.classList.toggle("hidden", !boissonsExpanded);
+					}
 				});
+			voirPlusBoissons.textContent = boissonsExpanded
+				? "VOIR MOINS DE BOISSONS"
+				: "VOIR PLUS DE BOISSONS";
+		});
+	</script>
 
-			let pizzasExpanded = false;
-			let boissonsExpanded = false;
-
-			voirPlusPizzas?.addEventListener("click", () => {
-				pizzasExpanded = !pizzasExpanded;
-				document
-					.querySelectorAll<HTMLElement>(".pizza-item")
-					.forEach((item, index) => {
-						if (index >= 5) {
-							item.classList.toggle("hidden", !pizzasExpanded);
-						}
-					});
-				voirPlusPizzas.textContent = pizzasExpanded
-					? "VOIR MOINS DE PIZZAS"
-					: "VOIR PLUS DE PIZZAS";
-			});
-
-			voirPlusBoissons?.addEventListener("click", () => {
-				boissonsExpanded = !boissonsExpanded;
-				document
-					.querySelectorAll<HTMLElement>(".boisson-item")
-					.forEach((item, index) => {
-						if (index >= 5) {
-							item.classList.toggle("hidden", !boissonsExpanded);
-						}
-					});
-				voirPlusBoissons.textContent = boissonsExpanded
-					? "VOIR MOINS DE BOISSONS"
-					: "VOIR PLUS DE BOISSONS";
-			});
-		</script>
-
-		<!-- Section Avis -->
-		<section class="bg-[#c9302c] py-12">
-			<div class="container mx-auto px-4">
-				<div class="grid md:grid-cols-3 gap-8 text-white text-center">
-					<div class="border-r border-white/30">
-						<h3 class="text-3xl font-bold">AVIS</h3>
-					</div>
-					<div class="border-r border-white/30">
-						<h3 class="text-3xl font-bold">AVIS NUMERO 1</h3>
-					</div>
-					<div>
-						<h3 class="text-3xl font-bold">AVIS NUMERO 1</h3>
-					</div>
+	<!-- Section Avis -->
+	<section class="bg-[#c9302c] py-12">
+		<div class="container mx-auto px-4">
+			<div class="grid md:grid-cols-3 gap-8 text-white text-center">
+				<div class="border-r border-white/30">
+					<h3 class="text-3xl font-bold">AVIS</h3>
+				</div>
+				<div class="border-r border-white/30">
+					<h3 class="text-3xl font-bold">AVIS NUMERO 1</h3>
+				</div>
+				<div>
+					<h3 class="text-3xl font-bold">AVIS NUMERO 1</h3>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<!-- Section INFOS -->
-		<section class="bg-[#f5e6d3] py-16">
-			<div class="container mx-auto px-4">
-				<h2 class="text-6xl font-bold text-gray-900 mb-12">INFOS</h2>
+	<!-- Section INFOS -->
+	<section class="bg-[#f5e6d3] py-16">
+		<div class="container mx-auto px-4">
+			<h2 class="text-6xl font-bold text-gray-900 mb-12">INFOS</h2>
 
-				<div class="grid md:grid-cols-2 gap-8">
-					<!-- Infos contact -->
-					<div class="space-y-6">
-						<div class="info-card">
-							<div class="flex items-center gap-4 mb-4">
-								<svg
-									class="w-8 h-8"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-									></path>
-								</svg>
-								<h3 class="text-2xl font-bold">HORAIRES</h3>
-							</div>
-							<p class="text-gray-700 mb-2 text-lg">
-								Lundi - Dimanche
-							</p>
-							<p class="text-4xl font-bold">18H - 00H00</p>
+			<div class="grid md:grid-cols-2 gap-8">
+				<!-- Infos contact -->
+				<div class="space-y-6">
+					<div class="info-card">
+						<div class="flex items-center gap-4 mb-4">
+							<svg
+								class="w-8 h-8"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+								></path>
+							</svg>
+							<h3 class="text-2xl font-bold">HORAIRES</h3>
 						</div>
+						<p class="text-gray-700 mb-2 text-lg">
+							Lundi - Dimanche
+						</p>
+						<p class="text-4xl font-bold">18H - 00H00</p>
+					</div>
 
-						<div class="info-card">
-							<div class="flex items-center gap-4 mb-4">
-								<svg
-									class="w-8 h-8"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-									></path>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-									></path>
-								</svg>
-								<h3 class="text-2xl font-bold">ADRESSE</h3>
-							</div>
-							<p class="text-3xl font-semibold">
-								25700 VALENTIGNEY
-							</p>
+					<div class="info-card">
+						<div class="flex items-center gap-4 mb-4">
+							<svg
+								class="w-8 h-8"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+								></path>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+							</svg>
+							<h3 class="text-2xl font-bold">ADRESSE</h3>
 						</div>
+						<p class="text-3xl font-semibold">25700 VALENTIGNEY</p>
+					</div>
 
-						<div class="info-card">
-							<div class="flex items-center gap-4 mb-4">
-								<svg
-									class="w-8 h-8"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-									></path>
-								</svg>
-								<h3 class="text-2xl font-bold">CONTACT</h3>
-							</div>
-							<p class="text-gray-700 mb-2 text-lg">
-								Appelez-nous
-							</p>
+					<div class="info-card">
+						<div class="flex items-center gap-4 mb-4">
+							<svg
+								class="w-8 h-8"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+								></path>
+							</svg>
+							<h3 class="text-2xl font-bold">CONTACT</h3>
+						</div>
+						<p class="text-gray-700 mb-2 text-lg">Appelez-nous</p>
+						<a
+							href="tel:0765864714"
+							class="text-4xl font-bold hover:text-[#c9302c] transition-colors"
+							>07 65 86 47 14</a
+						>
+					</div>
+
+					<div class="info-card">
+						<div class="flex items-center gap-4 mb-4">
+							<svg
+								class="w-8 h-8"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+								></path>
+							</svg>
+							<h3 class="text-2xl font-bold">RÉSEAUX SOCIAUX</h3>
+						</div>
+						<div class="flex gap-6 mt-4">
 							<a
-								href="tel:0765864714"
-								class="text-4xl font-bold hover:text-[#c9302c] transition-colors"
-								>07 65 86 47 14</a
+								href="#"
+								class="hover:text-[#c9302c] transition-colors font-semibold"
+								>INSTAGRAM</a
+							>
+							<a
+								href="#"
+								class="hover:text-[#c9302c] transition-colors font-semibold"
+								>SNAPCHAT</a
+							>
+							<a
+								href="#"
+								class="hover:text-[#c9302c] transition-colors font-semibold"
+								>TIKTOK</a
 							>
 						</div>
-
-						<div class="info-card">
-							<div class="flex items-center gap-4 mb-4">
-								<svg
-									class="w-8 h-8"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-									></path>
-								</svg>
-								<h3 class="text-2xl font-bold">
-									RÉSEAUX SOCIAUX
-								</h3>
-							</div>
-							<div class="flex gap-6 mt-4">
-								<a
-									href="#"
-									class="hover:text-[#c9302c] transition-colors font-semibold"
-									>INSTAGRAM</a
-								>
-								<a
-									href="#"
-									class="hover:text-[#c9302c] transition-colors font-semibold"
-									>SNAPCHAT</a
-								>
-								<a
-									href="#"
-									class="hover:text-[#c9302c] transition-colors font-semibold"
-									>TIKTOK</a
-								>
-							</div>
-						</div>
-					</div>
-
-					<!-- Carte Google Maps -->
-					<div
-						class="rounded-3xl overflow-hidden h-full min-h-150 border-2 border-black/30 bg-transparent"
-					>
-						<iframe
-							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.615!2d6.8306!3d47.4614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDI3JzQxLjAiTiA2wrA0OSc1MC4yIkU!5e0!3m2!1sfr!2sfr!4v1234567890"
-							class="map-dark"
-							width="100%"
-							height="100%"
-							style="border:0;"
-							allowfullscreen=""
-							loading="lazy"
-							referrerpolicy="no-referrer-when-downgrade"
-						></iframe>
 					</div>
 				</div>
+
+				<!-- Carte Google Maps -->
+				<div
+					class="rounded-3xl overflow-hidden h-full min-h-150 border-2 border-black/30 bg-transparent"
+				>
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.615!2d6.8306!3d47.4614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDI3JzQxLjAiTiA2wrA0OSc1MC4yIkU!5e0!3m2!1sfr!2sfr!4v1234567890"
+						class="map-dark"
+						width="100%"
+						height="100%"
+						style="border:0;"
+						allowfullscreen=""
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"></iframe>
+				</div>
 			</div>
-		</section>
+		</div>
 	</section>
 </Layout>
