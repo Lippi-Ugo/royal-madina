@@ -37,8 +37,8 @@ const details = [boisson.type, boisson.taille].filter(Boolean);
                     : "Description non disponible"
             }
         </p>
-        <p class="md:hidden mt-2 text-sm font-bold text-[#c9302c]">
-            {boisson.prix}€
+        <p class="md:hidden mt-2 text-lg font-bold text-[#c9302c]">
+            {boisson.prix?.toFixed(2)}€
         </p>
     </div>
 

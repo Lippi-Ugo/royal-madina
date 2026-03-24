@@ -30,8 +30,8 @@ const { pizza } = Astro.props;
         >
             {pizza.description || "Description non disponible"}
         </p>
-        <p class="md:hidden mt-2 text-sm font-bold text-[#c9302c]">
-            {pizza.prix}€
+        <p class="md:hidden mt-2 text-lg font-bold text-[#c9302c]">
+            {pizza.prix?.toFixed(2)}€
         </p>
     </div>
 
