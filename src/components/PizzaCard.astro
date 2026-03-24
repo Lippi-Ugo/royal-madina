@@ -33,8 +33,50 @@ const { pizza } = Astro.props;
     </div>
 
     <button
-        class="mt-4 sm:mt-7 w-full bg-[#c9302c] hover:bg-[#a02622] text-white py-2 sm:py-3 rounded-full font-bold text-sm sm:text-lg transition-colors"
+        class="mt-4 sm:mt-7 w-full bg-[#c9302c] hover:bg-[#a02622] text-white py-2 sm:py-3 rounded-full font-bold text-sm sm:text-lg transition-colors add-to-cart-btn"
+        data-item={JSON.stringify({
+            type: "pizza",
+            id: pizza.id,
+            nom: pizza.nom,
+            prix: pizza.prix,
+        })}
     >
         COMMANDER
     </button>
 </article>
+
+<script>
+    //@ts-ignore
+    if (!window._cartListenerAttached) {
+        document.addEventListener("click", (e) => {
+            const btn = (e.target as HTMLElement).closest(".add-to-cart-btn");
+            if (!btn) return;
+
+            const itemStr = btn.getAttribute("data-item");
+            if (!itemStr) return;
+
+            try {
+                const item = JSON.parse(itemStr);
+                const panier = JSON.parse(
+                    localStorage.getItem("panier") || "[]",
+                );
+                const existing = panier.find(
+                    (p: any) => p.id === item.id && p.type === item.type,
+                );
+
+                if (existing) {
+                    existing.quantite++;
+                } else {
+                    panier.push({ ...item, quantite: 1 });
+                }
+
+                localStorage.setItem("panier", JSON.stringify(panier));
+                window.location.href = "/panier";
+            } catch (err) {
+                console.error("Erreur panier:", err);
+            }
+        });
+        //@ts-ignore
+        window._cartListenerAttached = true;
+    }
+</script>
