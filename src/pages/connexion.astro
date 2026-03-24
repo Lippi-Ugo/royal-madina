@@ -5,16 +5,23 @@ import FondHero from "../assets/fond-hero.webp";
 
 <Layout titre="Connexion">
     <section
-        class="relative overflow-hidden min-h-96 flex items-center bg-cover bg-center bg-no-repeat"
+        class="relative overflow-hidden min-h-64 sm:min-h-80 md:min-h-96 flex items-center bg-cover bg-center bg-no-repeat"
         style={`background-image: url(${FondHero.src});`}
     >
         <div class="absolute inset-0 bg-[#f5e6d3]/70"></div>
-        <div class="container mx-auto px-4 py-16 relative z-10">
-            <h1 class="text-6xl font-bold text-gray-900">CONNEXION</h1>
+        <div
+            class="container mx-auto px-4 py-8 sm:py-12 md:py-16 relative z-10"
+        >
+            <h1
+                id="page-title"
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900"
+            >
+                CONNEXION
+            </h1>
         </div>
     </section>
 
-    <section class="bg-[#f5e6d3] py-16 md:py-24">
+    <section class="bg-[#f5e6d3] py-8 sm:py-12 md:py-16 lg:py-24">
         <div class="container mx-auto px-4">
             <div class="max-w-md mx-auto">
                 <!-- Profil utilisateur -->
@@ -46,17 +53,19 @@ import FondHero from "../assets/fond-hero.webp";
                 <!-- Form section -->
                 <div id="form-section" class="hidden">
                     <!-- Tabs -->
-                    <div class="flex gap-2 mb-8 border-b-2 border-[#d4b896]">
+                    <div
+                        class="flex gap-1 sm:gap-2 mb-6 sm:mb-8 border-b-2 border-[#d4b896]"
+                    >
                         <button
                             id="tab-login"
-                            class="tab-btn px-6 py-3 font-bold text-[#c9302c] border-b-4 border-[#c9302c]"
+                            class="tab-btn px-3 sm:px-6 py-2 sm:py-3 font-bold text-sm sm:text-base text-[#c9302c] border-b-4 border-[#c9302c] transition-colors"
                             data-tab="login"
                         >
                             CONNEXION
                         </button>
                         <button
                             id="tab-signup"
-                            class="tab-btn px-6 py-3 font-bold text-gray-600 border-b-4 border-transparent hover:text-[#c9302c]"
+                            class="tab-btn px-3 sm:px-6 py-2 sm:py-3 font-bold text-sm sm:text-base text-gray-600 border-b-4 border-transparent hover:text-[#c9302c] transition-colors"
                             data-tab="signup"
                         >
                             INSCRIPTION
@@ -66,38 +75,40 @@ import FondHero from "../assets/fond-hero.webp";
                     <!-- CONNEXION -->
                     <form
                         id="form-login"
-                        class="space-y-4 tab-content"
+                        class="space-y-3 sm:space-y-4 tab-content"
                         data-tab="login"
                     >
                         <div>
-                            <label class="block text-gray-700 font-bold mb-2"
+                            <label
+                                class="block text-sm sm:text-base text-gray-700 font-bold mb-2"
                                 >Email</label
                             >
                             <input
                                 required
                                 type="email"
                                 name="email"
-                                class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                class="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c] transition-colors"
                                 placeholder="vous@example.com"
                             />
                         </div>
 
                         <div>
-                            <label class="block text-gray-700 font-bold mb-2"
+                            <label
+                                class="block text-sm sm:text-base text-gray-700 font-bold mb-2"
                                 >Mot de passe</label
                             >
                             <input
                                 required
                                 type="password"
                                 name="password"
-                                class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                class="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c] transition-colors"
                                 placeholder="••••••••"
                             />
                         </div>
 
                         <button
                             type="submit"
-                            class="w-full bg-[#c9302c] hover:bg-[#a02622] text-white px-8 py-3 rounded-full font-bold transition-colors"
+                            class="w-full bg-[#c9302c] hover:bg-[#a02622] text-white px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base rounded-full font-bold transition-colors active:scale-95"
                         >
                             SE CONNECTER
                         </button>
@@ -112,76 +123,82 @@ import FondHero from "../assets/fond-hero.webp";
                     <!-- INSCRIPTION -->
                     <form
                         id="form-signup"
-                        class="space-y-4 tab-content hidden"
+                        class="space-y-3 sm:space-y-4 tab-content hidden"
                         data-tab="signup"
                     >
                         <div>
-                            <label class="block text-gray-700 font-bold mb-2"
+                            <label
+                                class="block text-sm sm:text-base text-gray-700 font-bold mb-2"
                                 >Prénom</label
                             >
                             <input
                                 required
                                 type="text"
                                 name="prenom"
-                                class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                class="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c] transition-colors"
                                 placeholder="Jean"
                             />
                         </div>
 
                         <div>
-                            <label class="block text-gray-700 font-bold mb-2"
+                            <label
+                                class="block text-sm sm:text-base text-gray-700 font-bold mb-2"
                                 >Nom</label
                             >
                             <input
                                 required
                                 type="text"
                                 name="nom"
-                                class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                class="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c] transition-colors"
                                 placeholder="Dupont"
                             />
                         </div>
 
                         <div>
-                            <label class="block text-gray-700 font-bold mb-2"
+                            <label
+                                class="block text-sm sm:text-base text-gray-700 font-bold mb-2"
                                 >Email</label
                             >
                             <input
                                 required
                                 type="email"
                                 name="email"
-                                class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                class="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c] transition-colors"
                                 placeholder="vous@example.com"
                             />
                         </div>
 
                         <div>
-                            <label class="block text-gray-700 font-bold mb-2"
+                            <label
+                                class="block text-sm sm:text-base text-gray-700 font-bold mb-2"
                                 >Mot de passe</label
                             >
                             <input
                                 required
                                 type="password"
                                 name="password"
-                                class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                class="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c] transition-colors"
                                 placeholder="••••••••"
                             />
                         </div>
 
                         <div>
-                            <label class="block text-gray-700 font-bold mb-2"
+                            <label
+                                class="block text-sm sm:text-base text-gray-700 font-bold mb-2"
                                 >Confirmer mot de passe</label
                             >
                             <input
                                 required
                                 type="password"
                                 name="password_confirm"
-                                class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                class="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c] transition-colors"
                                 placeholder="••••••••"
                             />
                         </div>
 
                         <div>
-                            <label class="block text-gray-700 font-bold mb-2"
+                            <label
+                                class="block text-sm sm:text-base text-gray-700 font-bold mb-2"
                                 >Avatar (optionnel)</label
                             >
                             <div class="relative">
@@ -190,7 +207,7 @@ import FondHero from "../assets/fond-hero.webp";
                                     name="avatar"
                                     id="avatar-input"
                                     accept="image/*"
-                                    class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                    class="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c] transition-colors"
                                 />
                                 <img
                                     id="avatar-preview"
@@ -202,7 +219,7 @@ import FondHero from "../assets/fond-hero.webp";
 
                         <button
                             type="submit"
-                            class="w-full bg-[#c9302c] hover:bg-[#a02622] text-white px-8 py-3 rounded-full font-bold transition-colors"
+                            class="w-full bg-[#c9302c] hover:bg-[#a02622] text-white px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base rounded-full font-bold transition-colors active:scale-95"
                         >
                             CRÉER UN COMPTE
                         </button>
@@ -214,7 +231,9 @@ import FondHero from "../assets/fond-hero.webp";
                         </div>
                     </form>
 
-                    <p class="text-center text-gray-600 mt-8">
+                    <p
+                        class="text-center text-gray-600 mt-6 sm:mt-8 text-sm sm:text-base"
+                    >
                         <a
                             href="/"
                             class="text-[#c9302c] hover:underline font-semibold"
@@ -282,6 +301,9 @@ import FondHero from "../assets/fond-hero.webp";
     tabBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
             const tabName = btn.dataset.tab;
+            const pageTitle = document.getElementById(
+                "page-title",
+            ) as HTMLElement;
 
             tabBtns.forEach((b) => {
                 if (b.dataset.tab === tabName) {
@@ -300,6 +322,15 @@ import FondHero from "../assets/fond-hero.webp";
                     content.classList.add("hidden");
                 }
             });
+
+            // Update page title
+            if (pageTitle) {
+                if (tabName === "signup") {
+                    pageTitle.textContent = "INSCRIPTION";
+                } else {
+                    pageTitle.textContent = "CONNEXION";
+                }
+            }
         });
     });
 
