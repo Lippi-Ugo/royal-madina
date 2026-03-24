@@ -1,0 +1,203 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FondHero from "../assets/fond-hero.webp";
+import Hero from "../assets/pizza-hero.webp";
+import Imrane_Qerchi from "../assets/imrane-qerchi.webp";
+---
+
+<Layout titre="Histoire">
+    <section
+        class="relative overflow-hidden min-h-screen flex items-center bg-cover bg-center bg-no-repeat"
+        style={`background-image: url(${FondHero.src});`}
+    >
+        <div class="absolute inset-0 bg-[#f5e6d3]/70"></div>
+        <div class="container mx-auto px-4 py-16 md:py-24">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="z-10">
+                    <span
+                        class="inline-flex items-center px-4 py-2 rounded-full bg-white text-sm font-semibold text-[#c9302c] mb-10"
+                    >
+                        NOTRE HISTOIRE
+                    </span>
+                    <h1
+                        class="text-5xl md:text-6xl font-bold text-gray-900 mb-8"
+                    >
+                        Royal Madina,
+                        <span class="text-[#c9302c]"
+                            >une histoire de famille</span
+                        >
+                    </h1>
+                    <p class="text-gray-700 text-lg mb-12 max-w-lg">
+                        Royal Madina, ce n'est pas simplement une pizzeria.
+                        C'est un lieu charge de souvenirs, une histoire de
+                        famille, une part de mon enfance.
+                    </p>
+                </div>
+                <div class="relative z-10">
+                    <img
+                        src={Hero.src}
+                        alt="Pizza Royal Madina"
+                        class="w-[95%] max-w-125 sm:w-[110%] sm:max-w-150 md:w-[135%] md:max-w-200 mx-auto drop-shadow-2xl"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#f5e6d3] py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-12 gap-8">
+                <div class="lg:col-span-7 space-y-6">
+                    <article class="info-card">
+                        <p class="text-gray-800 text-lg leading-relaxed">
+                            Creee en novembre 2009 par mon pere, Royal Madina a
+                            vecu jusqu'en avril 2015. Pendant ces annees, j'y ai
+                            grandi, de mes 4 a 10 ans, au milieu des parfums de
+                            pate chaude, de sauce tomate et du bruit rassurant
+                            du four. C'etait plus qu'un commerce : c'etait un
+                            foyer, un repere, un endroit ou la passion se
+                            transmettait sans mots.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <p class="text-gray-800 text-lg leading-relaxed">
+                            Lorsque les portes ont ferme en 2015, Royal Madina
+                            ne m'a jamais vraiment quitte. Elle est restee
+                            vivante dans mes souvenirs, dans l'envie un jour de
+                            faire revivre ce nom qui a marque mon enfance.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <p class="text-gray-800 text-lg leading-relaxed">
+                            En novembre 2024, j'ai decide de lui redonner vie.
+                            D'abord discretement, en Dark Kitchen, pour
+                            retrouver les gestes, affiner les recettes et
+                            respecter l'heritage. Une annee de travail, de
+                            patience et de passion, guidee par une seule idee :
+                            rester fidele a l'ame d'origine.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <p class="text-gray-800 text-lg leading-relaxed">
+                            Depuis fevrier/mars 2025, Royal Madina existe a
+                            nouveau, physiquement, a Valentigney, au XX rue des
+                            XXX. Chaque pizza que nous preparons est un hommage
+                            au passe, mais aussi une promesse pour l'avenir. Une
+                            promesse de sincerite, de generosite et
+                            d'authenticite.
+                        </p>
+                    </article>
+
+                    <article
+                        class="rounded-4xl border-2 border-[#c9302c]/25 bg-white/60 p-8 md:p-10"
+                    >
+                        <p
+                            class="text-2xl md:text-3xl leading-relaxed font-semibold text-gray-900"
+                        >
+                            "Royal Madina est nee une fois, elle renait
+                            aujourd'hui."
+                        </p>
+                        <p class="mt-4 text-lg text-gray-700 leading-relaxed">
+                            Et si elle continue d'exister, c'est pour partager
+                            avec vous bien plus qu'un repas : une histoire, une
+                            emotion, et une passion transmise de generation en
+                            generation.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="lg:col-span-5 space-y-6">
+                    <div
+                        class="rounded-4xl overflow-hidden border-2 border-black/20 h-70 sm:h-85"
+                    >
+                        <img
+                            src={Imrane_Qerchi.src}
+                            alt="Ambiance Royal Madina"
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+
+                    <div
+                        class="rounded-4xl overflow-hidden border-2 border-black/20 h-70 sm:h-85 bg-white/50"
+                    >
+                        <img
+                            src={Hero.src}
+                            alt="Pizza artisanale Royal Madina"
+                            class="w-full h-full object-contain p-6"
+                        />
+                    </div>
+
+                    <div
+                        class="rounded-4xl border-2 border-black/20 bg-white/60 p-6 sm:p-8"
+                    >
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                            Timeline
+                        </h2>
+                        <ul class="space-y-4 text-gray-700">
+                            <li>
+                                <span class="font-bold text-[#c9302c]"
+                                    >2009</span
+                                > : Creation de Royal Madina
+                            </li>
+                            <li>
+                                <span class="font-bold text-[#c9302c]"
+                                    >2015</span
+                                > : Fermeture de l'etablissement
+                            </li>
+                            <li>
+                                <span class="font-bold text-[#c9302c]"
+                                    >2024</span
+                                > : Relance en Dark Kitchen
+                            </li>
+                            <li>
+                                <span class="font-bold text-[#c9302c]"
+                                    >2025</span
+                                > : Retour physique a Valentigney
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#f5e6d3] pb-16 md:pb-24">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+                <div
+                    class="rounded-4xl border-2 border-black/20 bg-white/60 p-8 md:p-10"
+                >
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">
+                        Nous retrouver
+                    </h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        Royal Madina vous accueille a Valentigney. Cette adresse
+                        est le point de rencontre entre une histoire familiale
+                        et votre prochaine commande.
+                    </p>
+                    <p class="text-gray-900 font-bold text-2xl">
+                        XX rue des XXX
+                    </p>
+                    <p class="text-gray-700 text-xl">25700 Valentigney</p>
+                </div>
+
+                <div
+                    class="rounded-4xl overflow-hidden border-2 border-black/30 min-h-90 bg-transparent"
+                >
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.615!2d6.8306!3d47.4614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDI3JzQxLjAiTiA2wrA0OSc1MC4yIkU!5e0!3m2!1sfr!2sfr!4v1234567890"
+                        class="map-dark"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
