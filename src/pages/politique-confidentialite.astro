@@ -1,265 +1,188 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Politique de confidentialité | Royal Madina</title>
-    <meta
-      name="description"
-      content="Politique de confidentialité du site Royal Madina."
-    />
-  </head>
-  <body>
-    <Header />
+<Layout titre="Politique de confidentialité">
+  <div class="min-h-screen px-5 pt-8 pb-16">
+    <section class="max-w-3xl mx-auto mb-6">
+      <span
+        class="inline-block bg-[#fff7ea] text-[#111] border border-[#1112] rounded-full px-4 py-2 text-base font-bold mb-4"
+        >Protection des données</span
+      >
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-4"
+      >
+        Politique de confidentialité
+      </h1>
+      <p class="text-base md:text-lg text-[#2b2b2b] leading-relaxed mb-0">
+        Cette politique explique comment Royal Madina collecte, utilise,
+        conserve et protège les données personnelles de ses clients et
+        visiteurs.
+      </p>
+    </section>
+    <section
+      class="max-w-3xl mx-auto bg-[#fff8ee]/90 border border-[#1112] rounded-2xl p-6 md:p-8 shadow-lg"
+    >
+      <p class="mb-4"><strong>Date de mise à jour :</strong> XXX</p>
+      <h2 class="text-xl font-extrabold mt-7 mb-3 tracking-tight">
+        1. Responsable du traitement
+      </h2>
+      <p class="mb-4">
+        Le responsable du traitement des données personnelles collectées sur le
+        site est :
+      </p>
+      <p class="mb-4">
+        <strong>Royal Madina</strong><br />
+        Micro-entreprise exploitée par <strong>XXX NOM Prénom</strong><br />
+        Adresse : <strong>XXX</strong><br />
+        Téléphone : <strong>07 65 86 47 14</strong><br />
+        E-mail : <strong>XXX</strong>
+      </p>
+      <p>Contact relatif aux données personnelles : <strong>XXX</strong></p>
 
-    <main class="legal-page">
-      <section class="hero">
-        <span class="badge">Protection des données</span>
-        <h1>Politique de confidentialité</h1>
-        <p>
-          Cette politique explique comment Royal Madina collecte, utilise,
-          conserve et protège les données personnelles de ses clients et
-          visiteurs.
-        </p>
-      </section>
+      <h2>2. Données collectées</h2>
+      <p>
+        Dans le cadre de l’utilisation du site et de la gestion des commandes,
+        Royal Madina peut collecter les données suivantes :
+      </p>
+      <ul>
+        <li>nom et prénom ;</li>
+        <li>adresse de livraison ;</li>
+        <li>numéro de téléphone ;</li>
+        <li>adresse e-mail ;</li>
+        <li>informations liées au compte client ;</li>
+        <li>historique des commandes ;</li>
+        <li>informations nécessaires au paiement ;</li>
+        <li>données techniques de connexion et de navigation ;</li>
+        <li>éventuels commentaires laissés lors de la commande.</li>
+      </ul>
+      <p>
+        Les données bancaires complètes ne sont pas conservées par Royal Madina
+        lorsque le paiement est traité par un prestataire de paiement sécurisé
+        externe.
+      </p>
 
-      <section class="card">
-        <p><strong>Date de mise à jour :</strong> XXX</p>
+      <h2>3. Finalités du traitement</h2>
+      <p>Les données collectées sont utilisées pour :</p>
+      <ul>
+        <li>la création et la gestion du compte client ;</li>
+        <li>la gestion des commandes ;</li>
+        <li>la préparation des produits ;</li>
+        <li>l’organisation du retrait ou de la livraison ;</li>
+        <li>la gestion du paiement ;</li>
+        <li>la relation client et le traitement des réclamations ;</li>
+        <li>l’amélioration du site et des services ;</li>
+        <li>le respect des obligations légales, comptables et fiscales ;</li>
+        <li>la prévention de la fraude.</li>
+      </ul>
 
-        <h2>1. Responsable du traitement</h2>
-        <p>
-          Le responsable du traitement des données personnelles collectées sur le
-          site est :
-        </p>
-        <p>
-          <strong>Royal Madina</strong><br />
-          Micro-entreprise exploitée par <strong>XXX NOM Prénom</strong><br />
-          Adresse : <strong>XXX</strong><br />
-          Téléphone : <strong>07 65 86 47 14</strong><br />
-          E-mail : <strong>XXX</strong>
-        </p>
-        <p>Contact relatif aux données personnelles : <strong>XXX</strong></p>
+      <h2>4. Base juridique</h2>
+      <p>Les traitements mis en œuvre reposent selon les cas sur :</p>
+      <ul>
+        <li>l’exécution du contrat ;</li>
+        <li>le respect d’obligations légales ;</li>
+        <li>l’intérêt légitime de Royal Madina ;</li>
+        <li>
+          le consentement de la personne concernée lorsque celui-ci est requis.
+        </li>
+      </ul>
 
-        <h2>2. Données collectées</h2>
-        <p>
-          Dans le cadre de l’utilisation du site et de la gestion des commandes,
-          Royal Madina peut collecter les données suivantes :
-        </p>
-        <ul>
-          <li>nom et prénom ;</li>
-          <li>adresse de livraison ;</li>
-          <li>numéro de téléphone ;</li>
-          <li>adresse e-mail ;</li>
-          <li>informations liées au compte client ;</li>
-          <li>historique des commandes ;</li>
-          <li>informations nécessaires au paiement ;</li>
-          <li>données techniques de connexion et de navigation ;</li>
-          <li>éventuels commentaires laissés lors de la commande.</li>
-        </ul>
-        <p>
-          Les données bancaires complètes ne sont pas conservées par Royal
-          Madina lorsque le paiement est traité par un prestataire de paiement
-          sécurisé externe.
-        </p>
+      <h2>5. Caractère obligatoire des informations</h2>
+      <p>
+        Les informations signalées comme obligatoires dans les formulaires sont
+        nécessaires pour traiter la commande ou créer le compte client.
+      </p>
+      <p>
+        À défaut, Royal Madina pourra être dans l’impossibilité de fournir le
+        service demandé.
+      </p>
 
-        <h2>3. Finalités du traitement</h2>
-        <p>Les données collectées sont utilisées pour :</p>
-        <ul>
-          <li>la création et la gestion du compte client ;</li>
-          <li>la gestion des commandes ;</li>
-          <li>la préparation des produits ;</li>
-          <li>l’organisation du retrait ou de la livraison ;</li>
-          <li>la gestion du paiement ;</li>
-          <li>la relation client et le traitement des réclamations ;</li>
-          <li>l’amélioration du site et des services ;</li>
-          <li>le respect des obligations légales, comptables et fiscales ;</li>
-          <li>la prévention de la fraude.</li>
-        </ul>
+      <h2>6. Destinataires des données</h2>
+      <p>
+        Les données personnelles sont destinées uniquement aux personnes
+        habilitées au sein de Royal Madina ainsi qu’aux prestataires intervenant
+        strictement pour les besoins du service, notamment :
+      </p>
+      <ul>
+        <li>hébergement du site ;</li>
+        <li>paiement sécurisé ;</li>
+        <li>maintenance technique ;</li>
+        <li>livraison, le cas échéant ;</li>
+        <li>obligations légales ou administratives.</li>
+      </ul>
 
-        <h2>4. Base juridique</h2>
-        <p>Les traitements mis en œuvre reposent selon les cas sur :</p>
-        <ul>
-          <li>l’exécution du contrat ;</li>
-          <li>le respect d’obligations légales ;</li>
-          <li>l’intérêt légitime de Royal Madina ;</li>
-          <li>le consentement de la personne concernée lorsque celui-ci est requis.</li>
-        </ul>
+      <h2>7. Durée de conservation</h2>
+      <p>
+        Les données sont conservées pendant une durée n’excédant pas celle
+        nécessaire aux finalités pour lesquelles elles sont collectées,
+        notamment :
+      </p>
+      <ul>
+        <li>
+          données du compte client : jusqu’à suppression du compte ou après une
+          période d’inactivité ;
+        </li>
+        <li>
+          données de commande : pendant la durée nécessaire au traitement puis
+          archivage selon les obligations légales ;
+        </li>
+        <li>données de facturation : selon les durées légales applicables ;</li>
+        <li>
+          données de navigation et cookies : selon la politique de cookies.
+        </li>
+      </ul>
 
-        <h2>5. Caractère obligatoire des informations</h2>
-        <p>
-          Les informations signalées comme obligatoires dans les formulaires sont
-          nécessaires pour traiter la commande ou créer le compte client.
-        </p>
-        <p>
-          À défaut, Royal Madina pourra être dans l’impossibilité de fournir le
-          service demandé.
-        </p>
+      <h2>8. Sécurité</h2>
+      <p>
+        Royal Madina met en œuvre des mesures techniques et organisationnelles
+        adaptées pour protéger les données personnelles contre l’accès non
+        autorisé, la perte, l’altération ou la divulgation.
+      </p>
 
-        <h2>6. Destinataires des données</h2>
-        <p>
-          Les données personnelles sont destinées uniquement aux personnes
-          habilitées au sein de Royal Madina ainsi qu’aux prestataires
-          intervenant strictement pour les besoins du service, notamment :
-        </p>
-        <ul>
-          <li>hébergement du site ;</li>
-          <li>paiement sécurisé ;</li>
-          <li>maintenance technique ;</li>
-          <li>livraison, le cas échéant ;</li>
-          <li>obligations légales ou administratives.</li>
-        </ul>
+      <h2>9. Droits des personnes</h2>
+      <p>
+        Conformément à la réglementation applicable, toute personne concernée
+        dispose :
+      </p>
+      <ul>
+        <li>d’un droit d’accès ;</li>
+        <li>d’un droit de rectification ;</li>
+        <li>d’un droit d’effacement ;</li>
+        <li>d’un droit d’opposition ;</li>
+        <li>d’un droit à la limitation du traitement ;</li>
+        <li>d’un droit à la portabilité lorsque cela est applicable ;</li>
+        <li>
+          du droit de retirer son consentement à tout moment lorsque le
+          traitement repose sur celui-ci ;
+        </li>
+        <li>du droit d’introduire une réclamation auprès de la CNIL.</li>
+      </ul>
+      <p>
+        Toute demande peut être adressée à : <strong>XXX</strong><br />
+        ou par courrier à : <strong>XXX</strong>
+      </p>
+      <p>
+        Royal Madina pourra demander un justificatif d’identité lorsque cela est
+        nécessaire.
+      </p>
 
-        <h2>7. Durée de conservation</h2>
-        <p>
-          Les données sont conservées pendant une durée n’excédant pas celle
-          nécessaire aux finalités pour lesquelles elles sont collectées,
-          notamment :
-        </p>
-        <ul>
-          <li>données du compte client : jusqu’à suppression du compte ou après une période d’inactivité ;</li>
-          <li>données de commande : pendant la durée nécessaire au traitement puis archivage selon les obligations légales ;</li>
-          <li>données de facturation : selon les durées légales applicables ;</li>
-          <li>données de navigation et cookies : selon la politique de cookies.</li>
-        </ul>
+      <h2>10. Transfert des données</h2>
+      <p>
+        Les données personnelles sont traitées principalement au sein de l’Union
+        européenne ou dans des pays offrant un niveau de protection adéquat,
+        sous réserve des outils techniques utilisés par les prestataires
+        concernés.
+      </p>
 
-        <h2>8. Sécurité</h2>
-        <p>
-          Royal Madina met en œuvre des mesures techniques et organisationnelles
-          adaptées pour protéger les données personnelles contre l’accès non
-          autorisé, la perte, l’altération ou la divulgation.
-        </p>
-
-        <h2>9. Droits des personnes</h2>
-        <p>
-          Conformément à la réglementation applicable, toute personne concernée
-          dispose :
-        </p>
-        <ul>
-          <li>d’un droit d’accès ;</li>
-          <li>d’un droit de rectification ;</li>
-          <li>d’un droit d’effacement ;</li>
-          <li>d’un droit d’opposition ;</li>
-          <li>d’un droit à la limitation du traitement ;</li>
-          <li>d’un droit à la portabilité lorsque cela est applicable ;</li>
-          <li>du droit de retirer son consentement à tout moment lorsque le traitement repose sur celui-ci ;</li>
-          <li>du droit d’introduire une réclamation auprès de la CNIL.</li>
-        </ul>
-        <p>
-          Toute demande peut être adressée à : <strong>XXX</strong><br />
-          ou par courrier à : <strong>XXX</strong>
-        </p>
-        <p>
-          Royal Madina pourra demander un justificatif d’identité lorsque cela
-          est nécessaire.
-        </p>
-
-        <h2>10. Transfert des données</h2>
-        <p>
-          Les données personnelles sont traitées principalement au sein de
-          l’Union européenne ou dans des pays offrant un niveau de protection
-          adéquat, sous réserve des outils techniques utilisés par les
-          prestataires concernés.
-        </p>
-
-        <h2>11. Modification de la politique</h2>
-        <p>
-          Royal Madina se réserve le droit de modifier à tout moment la présente
-          politique de confidentialité.
-        </p>
-        <p>
-          La version applicable est celle publiée sur le site à la date de
-          consultation.
-        </p>
-      </section>
-    </main>
-
-    <Footer />
-  </body>
-</html>
-
-<style>
-  :global(body) {
-    margin: 0;
-    background: #f4ead8;
-    color: #111111;
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      sans-serif;
-  }
-
-  .legal-page {
-    min-height: 100vh;
-    padding: 32px 20px 64px;
-  }
-
-  .hero,
-  .card {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .hero {
-    margin-bottom: 24px;
-  }
-
-  .badge {
-    display: inline-block;
-    background: #fff7ea;
-    color: #111111;
-    border: 1px solid rgba(17, 17, 17, 0.08);
-    border-radius: 999px;
-    padding: 10px 16px;
-    font-size: 0.92rem;
-    font-weight: 700;
-    margin-bottom: 18px;
-  }
-
-  h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    line-height: 1.02;
-    margin: 0 0 14px;
-    font-weight: 900;
-    letter-spacing: -0.04em;
-  }
-
-  .hero p {
-    font-size: 1.1rem;
-    line-height: 1.75;
-    color: #2b2b2b;
-    margin: 0;
-  }
-
-  .card {
-    background: rgba(255, 248, 238, 0.92);
-    border: 1px solid rgba(17, 17, 17, 0.08);
-    border-radius: 28px;
-    padding: 28px 22px;
-    box-shadow: 0 10px 30px rgba(17, 17, 17, 0.04);
-  }
-
-  h2 {
-    font-size: 1.2rem;
-    margin: 28px 0 12px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-  }
-
-  h2:first-child {
-    margin-top: 0;
-  }
-
-  p,
-  li {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #1f1f1f;
-  }
-
-  ul {
-    padding-left: 20px;
-    margin: 10px 0 0;
-  }
-</style>
+      <h2>11. Modification de la politique</h2>
+      <p>
+        Royal Madina se réserve le droit de modifier à tout moment la présente
+        politique de confidentialité.
+      </p>
+      <p>
+        La version applicable est celle publiée sur le site à la date de
+        consultation.
+      </p>
+    </section>
+  </div>
+</Layout>

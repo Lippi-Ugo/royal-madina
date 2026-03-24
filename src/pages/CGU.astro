@@ -1,247 +1,173 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CGU | Royal Madina</title>
-    <meta
-      name="description"
-      content="Conditions générales d’utilisation du site Royal Madina."
-    />
-  </head>
-  <body>
-    <Header />
+<Layout titre="CGU">
+  <div class="min-h-screen px-5 pt-8 pb-16">
+    <section class="max-w-3xl mx-auto mb-6">
+      <span
+        class="inline-block bg-[#fff7ea] text-[#111] border border-[#1112] rounded-full px-4 py-2 text-base font-bold mb-4"
+        >Utilisation du site</span
+      >
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-4"
+      >
+        Conditions générales d’utilisation
+      </h1>
+      <p class="text-base md:text-lg text-[#2b2b2b] leading-relaxed mb-0">
+        Les présentes conditions encadrent l’accès au site Royal Madina et
+        l’utilisation de ses fonctionnalités, notamment la consultation de la
+        carte, la création d’un compte client et la commande en ligne.
+      </p>
+    </section>
+    <section
+      class="max-w-3xl mx-auto bg-[#fff8ee]/90 border border-[#1112] rounded-2xl p-6 md:p-8 shadow-lg"
+    >
+      <p class="mb-4"><strong>Date de mise à jour :</strong> XXX</p>
+      <h2 class="text-xl font-extrabold mt-7 mb-3 tracking-tight">
+        Article 1 – Objet
+      </h2>
+      <p class="mb-4">
+        Les présentes Conditions Générales d’Utilisation ont pour objet de
+        définir les conditions dans lesquelles les utilisateurs accèdent au site
+        internet de Royal Madina et l’utilisent.
+      </p>
+      <h2 class="text-xl font-extrabold mt-7 mb-3 tracking-tight">
+        Article 2 – Acceptation
+      </h2>
+      <p>
+        L’utilisation du site implique l’acceptation pleine et entière des
+        présentes CGU.
+      </p>
+      <p>
+        L’utilisateur reconnaît avoir pris connaissance des présentes conditions
+        avant toute navigation ou utilisation des services proposés sur le site.
+      </p>
 
-    <main class="legal-page">
-      <section class="hero">
-        <span class="badge">Utilisation du site</span>
-        <h1>Conditions générales d’utilisation</h1>
-        <p>
-          Les présentes conditions encadrent l’accès au site Royal Madina et
-          l’utilisation de ses fonctionnalités, notamment la consultation de la
-          carte, la création d’un compte client et la commande en ligne.
-        </p>
-      </section>
+      <h2>Article 3 – Accès au site</h2>
+      <p>
+        Le site est accessible à tout utilisateur disposant d’un accès à
+        internet.
+      </p>
+      <p>
+        Royal Madina met en œuvre les moyens raisonnables pour assurer
+        l’accessibilité du site, sans être tenue à une obligation de
+        disponibilité permanente.
+      </p>
+      <p>
+        Le site peut être temporairement interrompu pour maintenance, mise à
+        jour ou pour toute autre raison technique.
+      </p>
 
-      <section class="card">
-        <p><strong>Date de mise à jour :</strong> XXX</p>
+      <h2>Article 4 – Services proposés</h2>
+      <p>Le site permet notamment à l’utilisateur :</p>
+      <ul>
+        <li>de consulter les produits proposés à la vente ;</li>
+        <li>de créer un compte client ;</li>
+        <li>de passer commande en ligne ;</li>
+        <li>de choisir un mode de retrait ou de livraison ;</li>
+        <li>
+          de payer en ligne ou, lorsque cette option est proposée, à la
+          livraison ;
+        </li>
+        <li>de contacter Royal Madina.</li>
+      </ul>
 
-        <h2>Article 1 – Objet</h2>
-        <p>
-          Les présentes Conditions Générales d’Utilisation ont pour objet de
-          définir les conditions dans lesquelles les utilisateurs accèdent au
-          site internet de Royal Madina et l’utilisent.
-        </p>
+      <h2>Article 5 – Compte client</h2>
+      <p>
+        La création d’un compte client est proposée afin de faciliter les
+        commandes, accéder à l’historique des commandes et enregistrer certaines
+        informations utiles.
+      </p>
+      <p>
+        L’utilisateur s’engage à fournir des informations exactes, complètes et
+        à jour lors de la création de son compte.
+      </p>
+      <p>
+        Il est seul responsable de la confidentialité de ses identifiants de
+        connexion.
+      </p>
+      <p>
+        Toute connexion ou opération réalisée depuis le compte client est
+        réputée effectuée par le titulaire du compte, sauf preuve contraire.
+      </p>
+      <p>
+        En cas de perte, d’oubli ou d’utilisation frauduleuse de ses
+        identifiants, l’utilisateur doit en informer Royal Madina dans les
+        meilleurs délais.
+      </p>
 
-        <h2>Article 2 – Acceptation</h2>
-        <p>
-          L’utilisation du site implique l’acceptation pleine et entière des
-          présentes CGU.
-        </p>
-        <p>
-          L’utilisateur reconnaît avoir pris connaissance des présentes
-          conditions avant toute navigation ou utilisation des services proposés
-          sur le site.
-        </p>
+      <h2>Article 6 – Obligations de l’utilisateur</h2>
+      <p>L’utilisateur s’engage à :</p>
+      <ul>
+        <li>
+          utiliser le site de manière loyale et conforme à la réglementation en
+          vigueur ;
+        </li>
+        <li>ne pas porter atteinte au bon fonctionnement du site ;</li>
+        <li>
+          ne pas tenter d’accéder frauduleusement aux systèmes informatiques
+          liés au site ;
+        </li>
+        <li>
+          ne pas utiliser le site à des fins illicites, frauduleuses ou
+          nuisibles.
+        </li>
+      </ul>
 
-        <h2>Article 3 – Accès au site</h2>
-        <p>
-          Le site est accessible à tout utilisateur disposant d’un accès à
-          internet.
-        </p>
-        <p>
-          Royal Madina met en œuvre les moyens raisonnables pour assurer
-          l’accessibilité du site, sans être tenue à une obligation de
-          disponibilité permanente.
-        </p>
-        <p>
-          Le site peut être temporairement interrompu pour maintenance, mise à
-          jour ou pour toute autre raison technique.
-        </p>
+      <h2>Article 7 – Propriété intellectuelle</h2>
+      <p>
+        Tous les éléments accessibles sur le site sont protégés par les
+        dispositions du Code de la propriété intellectuelle.
+      </p>
+      <p>
+        Toute reproduction, représentation, adaptation ou exploitation non
+        autorisée de tout ou partie du site est interdite.
+      </p>
 
-        <h2>Article 4 – Services proposés</h2>
-        <p>Le site permet notamment à l’utilisateur :</p>
-        <ul>
-          <li>de consulter les produits proposés à la vente ;</li>
-          <li>de créer un compte client ;</li>
-          <li>de passer commande en ligne ;</li>
-          <li>de choisir un mode de retrait ou de livraison ;</li>
-          <li>de payer en ligne ou, lorsque cette option est proposée, à la livraison ;</li>
-          <li>de contacter Royal Madina.</li>
-        </ul>
+      <h2>Article 8 – Responsabilité</h2>
+      <p>Royal Madina ne pourra être tenue responsable :</p>
+      <ul>
+        <li>des interruptions temporaires du site ;</li>
+        <li>des dysfonctionnements techniques indépendants de sa volonté ;</li>
+        <li>
+          des dommages résultant d’une mauvaise utilisation du site par
+          l’utilisateur ;
+        </li>
+        <li>
+          des conséquences liées à l’utilisation de sites tiers accessibles via
+          des liens hypertextes.
+        </li>
+      </ul>
 
-        <h2>Article 5 – Compte client</h2>
-        <p>
-          La création d’un compte client est proposée afin de faciliter les
-          commandes, accéder à l’historique des commandes et enregistrer
-          certaines informations utiles.
-        </p>
-        <p>
-          L’utilisateur s’engage à fournir des informations exactes, complètes
-          et à jour lors de la création de son compte.
-        </p>
-        <p>
-          Il est seul responsable de la confidentialité de ses identifiants de
-          connexion.
-        </p>
-        <p>
-          Toute connexion ou opération réalisée depuis le compte client est
-          réputée effectuée par le titulaire du compte, sauf preuve contraire.
-        </p>
-        <p>
-          En cas de perte, d’oubli ou d’utilisation frauduleuse de ses
-          identifiants, l’utilisateur doit en informer Royal Madina dans les
-          meilleurs délais.
-        </p>
+      <h2>Article 9 – Données personnelles</h2>
+      <p>
+        Les données personnelles collectées via le site sont traitées
+        conformément à la Politique de confidentialité accessible sur le site.
+      </p>
 
-        <h2>Article 6 – Obligations de l’utilisateur</h2>
-        <p>L’utilisateur s’engage à :</p>
-        <ul>
-          <li>utiliser le site de manière loyale et conforme à la réglementation en vigueur ;</li>
-          <li>ne pas porter atteinte au bon fonctionnement du site ;</li>
-          <li>ne pas tenter d’accéder frauduleusement aux systèmes informatiques liés au site ;</li>
-          <li>ne pas utiliser le site à des fins illicites, frauduleuses ou nuisibles.</li>
-        </ul>
+      <h2>Article 10 – Cookies</h2>
+      <p>
+        Le site utilise des cookies et autres traceurs dans les conditions
+        décrites dans la Politique de cookies.
+      </p>
 
-        <h2>Article 7 – Propriété intellectuelle</h2>
-        <p>
-          Tous les éléments accessibles sur le site sont protégés par les
-          dispositions du Code de la propriété intellectuelle.
-        </p>
-        <p>
-          Toute reproduction, représentation, adaptation ou exploitation non
-          autorisée de tout ou partie du site est interdite.
-        </p>
+      <h2>Article 11 – Modification des CGU</h2>
+      <p>
+        Royal Madina se réserve le droit de modifier à tout moment les présentes
+        CGU.
+      </p>
+      <p>
+        La version applicable est celle publiée sur le site au moment de son
+        utilisation.
+      </p>
 
-        <h2>Article 8 – Responsabilité</h2>
-        <p>Royal Madina ne pourra être tenue responsable :</p>
-        <ul>
-          <li>des interruptions temporaires du site ;</li>
-          <li>des dysfonctionnements techniques indépendants de sa volonté ;</li>
-          <li>des dommages résultant d’une mauvaise utilisation du site par l’utilisateur ;</li>
-          <li>des conséquences liées à l’utilisation de sites tiers accessibles via des liens hypertextes.</li>
-        </ul>
-
-        <h2>Article 9 – Données personnelles</h2>
-        <p>
-          Les données personnelles collectées via le site sont traitées
-          conformément à la Politique de confidentialité accessible sur le site.
-        </p>
-
-        <h2>Article 10 – Cookies</h2>
-        <p>
-          Le site utilise des cookies et autres traceurs dans les conditions
-          décrites dans la Politique de cookies.
-        </p>
-
-        <h2>Article 11 – Modification des CGU</h2>
-        <p>
-          Royal Madina se réserve le droit de modifier à tout moment les
-          présentes CGU.
-        </p>
-        <p>
-          La version applicable est celle publiée sur le site au moment de son
-          utilisation.
-        </p>
-
-        <h2>Article 12 – Droit applicable</h2>
-        <p>
-          Les présentes CGU sont soumises au droit français.
-        </p>
-        <p>
-          Tout litige relatif à l’utilisation du site sera soumis aux
-          juridictions compétentes dans les conditions du droit commun.
-        </p>
-      </section>
-    </main>
-
-    <Footer />
-  </body>
-</html>
-
-<style>
-  :global(body) {
-    margin: 0;
-    background: #f4ead8;
-    color: #111111;
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      sans-serif;
-  }
-
-  .legal-page {
-    min-height: 100vh;
-    padding: 32px 20px 64px;
-  }
-
-  .hero,
-  .card {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .hero {
-    margin-bottom: 24px;
-  }
-
-  .badge {
-    display: inline-block;
-    background: #fff7ea;
-    color: #111111;
-    border: 1px solid rgba(17, 17, 17, 0.08);
-    border-radius: 999px;
-    padding: 10px 16px;
-    font-size: 0.92rem;
-    font-weight: 700;
-    margin-bottom: 18px;
-  }
-
-  h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    line-height: 1.02;
-    margin: 0 0 14px;
-    font-weight: 900;
-    letter-spacing: -0.04em;
-  }
-
-  .hero p {
-    font-size: 1.1rem;
-    line-height: 1.75;
-    color: #2b2b2b;
-    margin: 0;
-  }
-
-  .card {
-    background: rgba(255, 248, 238, 0.92);
-    border: 1px solid rgba(17, 17, 17, 0.08);
-    border-radius: 28px;
-    padding: 28px 22px;
-    box-shadow: 0 10px 30px rgba(17, 17, 17, 0.04);
-  }
-
-  h2 {
-    font-size: 1.2rem;
-    margin: 28px 0 12px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-  }
-
-  h2:first-child {
-    margin-top: 0;
-  }
-
-  p,
-  li {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #1f1f1f;
-  }
-
-  ul {
-    padding-left: 20px;
-    margin: 10px 0 0;
-  }
-</style>
+      <h2>Article 12 – Droit applicable</h2>
+      <p>Les présentes CGU sont soumises au droit français.</p>
+      <p>
+        Tout litige relatif à l’utilisation du site sera soumis aux juridictions
+        compétentes dans les conditions du droit commun.
+      </p>
+    </section>
+  </div>
+</Layout>

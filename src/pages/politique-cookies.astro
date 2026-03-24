@@ -1,210 +1,115 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Politique de cookies | Royal Madina</title>
-    <meta
-      name="description"
-      content="Politique de cookies du site Royal Madina."
-    />
-  </head>
-  <body>
-    <Header />
+<Layout titre="Politique de cookies">
+  <div class="min-h-screen px-5 pt-8 pb-16">
+    <section class="max-w-3xl mx-auto mb-6">
+      <span
+        class="inline-block bg-[#fff7ea] text-[#111] border border-[#1112] rounded-full px-4 py-2 text-base font-bold mb-4"
+        >Cookies et traceurs</span
+      >
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-4"
+      >
+        Politique de cookies
+      </h1>
+      <p class="text-base md:text-lg text-[#2b2b2b] leading-relaxed mb-0">
+        Cette page explique l’utilisation des cookies sur le site Royal Madina,
+        les catégories de traceurs utilisées et les choix dont dispose
+        l’utilisateur.
+      </p>
+    </section>
+    <section
+      class="max-w-3xl mx-auto bg-[#fff8ee]/90 border border-[#1112] rounded-2xl p-6 md:p-8 shadow-lg"
+    >
+      <p class="mb-4"><strong>Date de mise à jour :</strong> XXX</p>
+      <h2 class="text-xl font-extrabold mt-7 mb-3 tracking-tight">
+        1. Définition
+      </h2>
+      <p class="mb-4">
+        Un cookie est un petit fichier texte déposé sur le terminal de
+        l’utilisateur lors de sa navigation sur un site internet.
+      </p>
+      <p class="mb-4">
+        Il permet notamment d’assurer le bon fonctionnement du site, de
+        mémoriser certaines préférences et d’obtenir des informations
+        statistiques sur l’utilisation du site.
+      </p>
 
-    <main class="legal-page">
-      <section class="hero">
-        <span class="badge">Cookies et traceurs</span>
-        <h1>Politique de cookies</h1>
-        <p>
-          Cette page explique l’utilisation des cookies sur le site Royal
-          Madina, les catégories de traceurs utilisées et les choix dont dispose
-          l’utilisateur.
-        </p>
-      </section>
+      <h2>2. Cookies utilisés</h2>
+      <p>
+        Le site Royal Madina peut utiliser les catégories de cookies suivantes :
+      </p>
 
-      <section class="card">
-        <p><strong>Date de mise à jour :</strong> XXX</p>
+      <h3>Cookies strictement nécessaires</h3>
+      <p>
+        Ces cookies sont indispensables au fonctionnement du site et à la
+        fourniture des services demandés par l’utilisateur, notamment :
+      </p>
+      <ul>
+        <li>gestion du panier ;</li>
+        <li>connexion au compte client ;</li>
+        <li>sécurisation de la session ;</li>
+        <li>mémorisation de certains choix techniques.</li>
+      </ul>
 
-        <h2>1. Définition</h2>
-        <p>
-          Un cookie est un petit fichier texte déposé sur le terminal de
-          l’utilisateur lors de sa navigation sur un site internet.
-        </p>
-        <p>
-          Il permet notamment d’assurer le bon fonctionnement du site, de
-          mémoriser certaines préférences et d’obtenir des informations
-          statistiques sur l’utilisation du site.
-        </p>
+      <h3>Cookies de mesure d’audience</h3>
+      <p>
+        Ces cookies permettent d’analyser la fréquentation du site et
+        d’améliorer son fonctionnement.
+      </p>
 
-        <h2>2. Cookies utilisés</h2>
-        <p>Le site Royal Madina peut utiliser les catégories de cookies suivantes :</p>
+      <h3>Cookies publicitaires ou de réseaux sociaux</h3>
+      <p>
+        Si Royal Madina utilise ultérieurement des outils publicitaires, pixels
+        marketing ou modules de partage, des cookies correspondants pourront
+        être déposés sous réserve du consentement préalable de l’utilisateur.
+      </p>
 
-        <h3>Cookies strictement nécessaires</h3>
-        <p>
-          Ces cookies sont indispensables au fonctionnement du site et à la
-          fourniture des services demandés par l’utilisateur, notamment :
-        </p>
-        <ul>
-          <li>gestion du panier ;</li>
-          <li>connexion au compte client ;</li>
-          <li>sécurisation de la session ;</li>
-          <li>mémorisation de certains choix techniques.</li>
-        </ul>
+      <h2>3. Consentement</h2>
+      <p>
+        Lors de sa première visite, l’utilisateur est informé de l’utilisation
+        de cookies via un bandeau dédié.
+      </p>
+      <p>L’utilisateur peut :</p>
+      <ul>
+        <li>accepter tous les cookies ;</li>
+        <li>refuser tous les cookies non essentiels ;</li>
+        <li>personnaliser ses choix.</li>
+      </ul>
+      <p>
+        Le refus des cookies non essentiels n’empêche pas l’accès au site, mais
+        certaines fonctionnalités peuvent être limitées.
+      </p>
 
-        <h3>Cookies de mesure d’audience</h3>
-        <p>
-          Ces cookies permettent d’analyser la fréquentation du site et
-          d’améliorer son fonctionnement.
-        </p>
+      <h2>4. Durée de conservation</h2>
+      <p>
+        Les cookies sont conservés pour une durée limitée conformément à leur
+        finalité et à la réglementation applicable.
+      </p>
+      <p>
+        Le choix de l’utilisateur en matière de cookies peut également être
+        conservé pour une durée limitée afin d’éviter de lui redemander sa
+        préférence à chaque visite.
+      </p>
 
-        <h3>Cookies publicitaires ou de réseaux sociaux</h3>
-        <p>
-          Si Royal Madina utilise ultérieurement des outils publicitaires,
-          pixels marketing ou modules de partage, des cookies correspondants
-          pourront être déposés sous réserve du consentement préalable de
-          l’utilisateur.
-        </p>
+      <h2>5. Gestion des cookies</h2>
+      <p>
+        L’utilisateur peut à tout moment modifier ses choix via l’outil de
+        gestion des cookies mis à disposition sur le site.
+      </p>
+      <p>
+        Il peut également configurer son navigateur pour bloquer ou supprimer
+        les cookies. Toutefois, la désactivation de certains cookies peut
+        altérer le bon fonctionnement du site.
+      </p>
 
-        <h2>3. Consentement</h2>
-        <p>
-          Lors de sa première visite, l’utilisateur est informé de l’utilisation
-          de cookies via un bandeau dédié.
-        </p>
-        <p>L’utilisateur peut :</p>
-        <ul>
-          <li>accepter tous les cookies ;</li>
-          <li>refuser tous les cookies non essentiels ;</li>
-          <li>personnaliser ses choix.</li>
-        </ul>
-        <p>
-          Le refus des cookies non essentiels n’empêche pas l’accès au site,
-          mais certaines fonctionnalités peuvent être limitées.
-        </p>
-
-        <h2>4. Durée de conservation</h2>
-        <p>
-          Les cookies sont conservés pour une durée limitée conformément à leur
-          finalité et à la réglementation applicable.
-        </p>
-        <p>
-          Le choix de l’utilisateur en matière de cookies peut également être
-          conservé pour une durée limitée afin d’éviter de lui redemander sa
-          préférence à chaque visite.
-        </p>
-
-        <h2>5. Gestion des cookies</h2>
-        <p>
-          L’utilisateur peut à tout moment modifier ses choix via l’outil de
-          gestion des cookies mis à disposition sur le site.
-        </p>
-        <p>
-          Il peut également configurer son navigateur pour bloquer ou supprimer
-          les cookies. Toutefois, la désactivation de certains cookies peut
-          altérer le bon fonctionnement du site.
-        </p>
-
-        <h2>6. Contact</h2>
-        <p>
-          Pour toute question concernant les cookies, l’utilisateur peut
-          contacter Royal Madina à l’adresse suivante : <strong>XXX</strong>
-        </p>
-      </section>
-    </main>
-
-    <Footer />
-  </body>
-</html>
-
-<style>
-  :global(body) {
-    margin: 0;
-    background: #f4ead8;
-    color: #111111;
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      sans-serif;
-  }
-
-  .legal-page {
-    min-height: 100vh;
-    padding: 32px 20px 64px;
-  }
-
-  .hero,
-  .card {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .hero {
-    margin-bottom: 24px;
-  }
-
-  .badge {
-    display: inline-block;
-    background: #fff7ea;
-    color: #111111;
-    border: 1px solid rgba(17, 17, 17, 0.08);
-    border-radius: 999px;
-    padding: 10px 16px;
-    font-size: 0.92rem;
-    font-weight: 700;
-    margin-bottom: 18px;
-  }
-
-  h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    line-height: 1.02;
-    margin: 0 0 14px;
-    font-weight: 900;
-    letter-spacing: -0.04em;
-  }
-
-  .hero p {
-    font-size: 1.1rem;
-    line-height: 1.75;
-    color: #2b2b2b;
-    margin: 0;
-  }
-
-  .card {
-    background: rgba(255, 248, 238, 0.92);
-    border: 1px solid rgba(17, 17, 17, 0.08);
-    border-radius: 28px;
-    padding: 28px 22px;
-    box-shadow: 0 10px 30px rgba(17, 17, 17, 0.04);
-  }
-
-  h2 {
-    font-size: 1.2rem;
-    margin: 28px 0 12px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-  }
-
-  h3 {
-    font-size: 1.02rem;
-    margin: 20px 0 8px;
-    font-weight: 800;
-  }
-
-  h2:first-child {
-    margin-top: 0;
-  }
-
-  p,
-  li {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #1f1f1f;
-  }
-
-  ul {
-    padding-left: 20px;
-    margin: 10px 0 0;
-  }
-</style>
+      <h2>6. Contact</h2>
+      <p>
+        Pour toute question concernant les cookies, l’utilisateur peut contacter
+        Royal Madina à l’adresse suivante : <strong>XXX</strong>
+      </p>
+    </section>
+  </div>
+</Layout>
