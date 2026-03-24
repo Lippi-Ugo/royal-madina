@@ -25,14 +25,23 @@ type CommandeInfos = {
 export const POST: APIRoute = async ({ request, locals }) => {
     try {
         const pb = locals.pb;
-        if (!pb) return new Response("PocketBase indisponible", { status: 500 });
+        if (!pb) {
+            console.error("❌ pb non disponible");
+            return new Response(JSON.stringify({ error: "PocketBase indisponible" }), { status: 500 });
+        }
+
+        const pbUrl = import.meta.env.PB_URL;
+        if (!pbUrl) {
+            console.error("❌ PB_URL not defined");
+            return new Response(JSON.stringify({ error: "PB_URL not configured" }), { status: 500 });
+        }
 
         const { items, infos } = (await request.json()) as {
             items?: PanierItem[];
             infos?: CommandeInfos;
         };
         if (!Array.isArray(items) || items.length === 0) {
-            return new Response("Panier vide", { status: 400 });
+            return new Response(JSON.stringify({ error: "Panier vide" }), { status: 400 });
         }
 
         const line_items: Array<{
@@ -68,7 +77,14 @@ export const POST: APIRoute = async ({ request, locals }) => {
             for (const item of items) {
                 const qte = Math.max(1, Number(item.quantite || 1));
                 const collection = item.type === "pizza" ? "pizzas" : "boissons";
-                const produit = await pb.collection(collection).getOne(item.id);
+
+                let produit;
+                try {
+                    produit = await pb.collection(collection).getOne(item.id);
+                } catch (pbErr) {
+                    console.error(`❌ Erreur PocketBase pour ${collection} ${item.id}:`, pbErr);
+                    return new Response(JSON.stringify({ error: `Produit ${item.nom} introuvable` }), { status: 404 });
+                }
 
                 const prix = Number(produit.prix || 0);
                 const unitAmount = Math.round(prix * 100);
@@ -123,7 +139,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
             line_items,
             success_url: `${baseUrl}/paiement/succes?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${baseUrl}/paiement/annule`,
-            metadata: { 
+            metadata: {
                 commandeId: commande!.id,
                 itemsCompact: itemsCompact,
             },
