@@ -1,0 +1,455 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FondHero from "../assets/fond-hero.webp";
+---
+
+<Layout titre="Connexion">
+    <section
+        class="relative overflow-hidden min-h-96 flex items-center bg-cover bg-center bg-no-repeat"
+        style={`background-image: url(${FondHero.src});`}
+    >
+        <div class="absolute inset-0 bg-[#f5e6d3]/70"></div>
+        <div class="container mx-auto px-4 py-16 relative z-10">
+            <h1 class="text-6xl font-bold text-gray-900">CONNEXION</h1>
+        </div>
+    </section>
+
+    <section class="bg-[#f5e6d3] py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="max-w-md mx-auto">
+                <!-- Profil utilisateur -->
+                <div id="profile-section" class="hidden">
+                    <div class="mb-8">
+                        <div
+                            class="bg-linear-to-b from-[#f5e6d3] to-white rounded-3xl border-4 border-[#c9302c] p-8 text-center shadow-lg"
+                        >
+                            <img
+                                id="user-avatar"
+                                class="w-40 h-40 rounded-full object-cover mx-auto mb-6 border-4 border-[#c9302c] shadow-lg hidden"
+                                alt="Avatar"
+                            />
+                            <span
+                                id="user-display"
+                                class="text-3xl font-bold text-gray-900 mb-6 block"
+                            ></span>
+                            <button
+                                id="btn-logout"
+                                type="button"
+                                class="w-full bg-[#c9302c] hover:bg-[#a02622] text-white px-6 py-3 rounded-full font-bold transition-colors"
+                            >
+                                Déconnexion
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form section -->
+                <div id="form-section" class="hidden">
+                    <!-- Tabs -->
+                    <div class="flex gap-2 mb-8 border-b-2 border-[#d4b896]">
+                        <button
+                            id="tab-login"
+                            class="tab-btn px-6 py-3 font-bold text-[#c9302c] border-b-4 border-[#c9302c]"
+                            data-tab="login"
+                        >
+                            CONNEXION
+                        </button>
+                        <button
+                            id="tab-signup"
+                            class="tab-btn px-6 py-3 font-bold text-gray-600 border-b-4 border-transparent hover:text-[#c9302c]"
+                            data-tab="signup"
+                        >
+                            INSCRIPTION
+                        </button>
+                    </div>
+
+                    <!-- CONNEXION -->
+                    <form
+                        id="form-login"
+                        class="space-y-4 tab-content"
+                        data-tab="login"
+                    >
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2"
+                                >Email</label
+                            >
+                            <input
+                                required
+                                type="email"
+                                name="email"
+                                class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                placeholder="vous@example.com"
+                            />
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2"
+                                >Mot de passe</label
+                            >
+                            <input
+                                required
+                                type="password"
+                                name="password"
+                                class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                placeholder="••••••••"
+                            />
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="w-full bg-[#c9302c] hover:bg-[#a02622] text-white px-8 py-3 rounded-full font-bold transition-colors"
+                        >
+                            SE CONNECTER
+                        </button>
+
+                        <div
+                            id="login-error"
+                            class="text-[#c9302c] text-center text-sm hidden"
+                        >
+                        </div>
+                    </form>
+
+                    <!-- INSCRIPTION -->
+                    <form
+                        id="form-signup"
+                        class="space-y-4 tab-content hidden"
+                        data-tab="signup"
+                    >
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2"
+                                >Prénom</label
+                            >
+                            <input
+                                required
+                                type="text"
+                                name="prenom"
+                                class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                placeholder="Jean"
+                            />
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2"
+                                >Nom</label
+                            >
+                            <input
+                                required
+                                type="text"
+                                name="nom"
+                                class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                placeholder="Dupont"
+                            />
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2"
+                                >Email</label
+                            >
+                            <input
+                                required
+                                type="email"
+                                name="email"
+                                class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                placeholder="vous@example.com"
+                            />
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2"
+                                >Mot de passe</label
+                            >
+                            <input
+                                required
+                                type="password"
+                                name="password"
+                                class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                placeholder="••••••••"
+                            />
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2"
+                                >Confirmer mot de passe</label
+                            >
+                            <input
+                                required
+                                type="password"
+                                name="password_confirm"
+                                class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                placeholder="••••••••"
+                            />
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2"
+                                >Avatar (optionnel)</label
+                            >
+                            <div class="relative">
+                                <input
+                                    type="file"
+                                    name="avatar"
+                                    id="avatar-input"
+                                    accept="image/*"
+                                    class="w-full px-4 py-3 border-2 border-[#d4b896] rounded-2xl focus:outline-none focus:border-[#c9302c]"
+                                />
+                                <img
+                                    id="avatar-preview"
+                                    class="hidden w-20 h-20 rounded-full object-cover mt-2"
+                                    alt="Avatar preview"
+                                />
+                            </div>
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="w-full bg-[#c9302c] hover:bg-[#a02622] text-white px-8 py-3 rounded-full font-bold transition-colors"
+                        >
+                            CRÉER UN COMPTE
+                        </button>
+
+                        <div
+                            id="signup-error"
+                            class="text-[#c9302c] text-center text-sm hidden"
+                        >
+                        </div>
+                    </form>
+
+                    <p class="text-center text-gray-600 mt-8">
+                        <a
+                            href="/"
+                            class="text-[#c9302c] hover:underline font-semibold"
+                        >
+                            Retour à l'accueil
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    // Gestion de l'authentification
+    const profileSection = document.getElementById(
+        "profile-section",
+    ) as HTMLElement;
+    const formSection = document.getElementById("form-section") as HTMLElement;
+    const userDisplay = document.getElementById(
+        "user-display",
+    ) as HTMLSpanElement;
+    const userAvatar = document.getElementById(
+        "user-avatar",
+    ) as HTMLImageElement;
+    const btnLogout = document.getElementById("btn-logout");
+
+    const updateAuthStatus = () => {
+        const token = localStorage.getItem("auth_token");
+        const userPrenom = localStorage.getItem("user_prenom");
+        const userNom = localStorage.getItem("user_nom");
+        const userAvatarUrl = localStorage.getItem("user_avatar");
+
+        if (token && (userPrenom || userNom)) {
+            profileSection.classList.remove("hidden");
+            formSection.classList.add("hidden");
+
+            // Afficher avatar si existe, sinon prénom+nom
+            if (userAvatarUrl) {
+                userAvatar.src = userAvatarUrl;
+                userAvatar.classList.remove("hidden");
+                userDisplay.textContent = "";
+            } else {
+                userAvatar.classList.add("hidden");
+                userDisplay.textContent =
+                    `${userPrenom || ""} ${userNom || ""}`.trim();
+            }
+        } else {
+            profileSection.classList.add("hidden");
+            formSection.classList.remove("hidden");
+        }
+    };
+
+    updateAuthStatus();
+    window.addEventListener("storage", updateAuthStatus);
+
+    // TAB SWITCHING
+    const tabBtns = document.querySelectorAll(
+        ".tab-btn",
+    ) as NodeListOf<HTMLElement>;
+    const tabContents = document.querySelectorAll(
+        ".tab-content",
+    ) as NodeListOf<HTMLElement>;
+
+    tabBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const tabName = btn.dataset.tab;
+
+            tabBtns.forEach((b) => {
+                if (b.dataset.tab === tabName) {
+                    b.classList.add("text-[#c9302c]", "border-b-[#c9302c]");
+                    b.classList.remove("text-gray-600", "border-transparent");
+                } else {
+                    b.classList.remove("text-[#c9302c]", "border-b-[#c9302c]");
+                    b.classList.add("text-gray-600", "border-transparent");
+                }
+            });
+
+            tabContents.forEach((content) => {
+                if (content.dataset.tab === tabName) {
+                    content.classList.remove("hidden");
+                } else {
+                    content.classList.add("hidden");
+                }
+            });
+        });
+    });
+
+    // Déconnexion
+    btnLogout?.addEventListener("click", () => {
+        localStorage.removeItem("auth_token");
+        localStorage.removeItem("user_email");
+        localStorage.removeItem("user_prenom");
+        localStorage.removeItem("user_nom");
+        localStorage.removeItem("user_avatar");
+        window.location.href = "/";
+    });
+
+    // FORM SUBMISSIONS
+    const formLogin = document.getElementById("form-login") as HTMLFormElement;
+    const formSignup = document.getElementById(
+        "form-signup",
+    ) as HTMLFormElement;
+
+    // Login
+    formLogin?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(formLogin);
+        const loginError = document.getElementById(
+            "login-error",
+        ) as HTMLDivElement;
+
+        try {
+            loginError.classList.add("hidden");
+            const res = await fetch("/routes/auth/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    email: formData.get("email"),
+                    password: formData.get("password"),
+                }),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                loginError.textContent = data.error || "Erreur de connexion";
+                loginError.classList.remove("hidden");
+                return;
+            }
+
+            // Success - store user data
+            localStorage.setItem("auth_token", data.token);
+            localStorage.setItem("user_email", data.user.email);
+            localStorage.setItem("user_prenom", data.user.prenom || "");
+            localStorage.setItem("user_nom", data.user.nom || "");
+            if (data.user.avatar) {
+                const avatarUrl = `http://127.0.0.1:8090/api/files/users/${data.user.id}/${data.user.avatar}`;
+                localStorage.setItem("user_avatar", avatarUrl);
+            }
+
+            // Redémarrer depuis la page précédente ou /panier
+            const returnTo = sessionStorage.getItem("returnTo") || "/panier";
+            sessionStorage.removeItem("returnTo");
+            window.location.href = returnTo;
+        } catch (err) {
+            loginError.textContent = "Erreur réseau";
+            loginError.classList.remove("hidden");
+        }
+    });
+
+    // Preview avatar
+    const avatarInput = document.getElementById(
+        "avatar-input",
+    ) as HTMLInputElement;
+    const avatarPreview = document.getElementById(
+        "avatar-preview",
+    ) as HTMLImageElement;
+
+    avatarInput?.addEventListener("change", (e) => {
+        const file = (e.target as HTMLInputElement).files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                avatarPreview.src = event.target?.result as string;
+                avatarPreview.classList.remove("hidden");
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Signup
+    formSignup?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(formSignup);
+        const signupError = document.getElementById(
+            "signup-error",
+        ) as HTMLDivElement;
+
+        const password = formData.get("password");
+        const passwordConfirm = formData.get("password_confirm");
+
+        if (password !== passwordConfirm) {
+            signupError.textContent = "Les mots de passe ne correspondent pas";
+            signupError.classList.remove("hidden");
+            return;
+        }
+
+        try {
+            signupError.classList.add("hidden");
+
+            const submitFormData = new FormData();
+            submitFormData.append("email", formData.get("email") as string);
+            submitFormData.append(
+                "password",
+                formData.get("password") as string,
+            );
+            submitFormData.append("prenom", formData.get("prenom") as string);
+            submitFormData.append("nom", formData.get("nom") as string);
+
+            const avatarFile = formData.get("avatar") as File;
+            if (avatarFile) {
+                submitFormData.append("avatar", avatarFile);
+            }
+
+            const res = await fetch("/routes/auth/signup", {
+                method: "POST",
+                body: submitFormData,
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                signupError.textContent = data.error || "Erreur d'inscription";
+                signupError.classList.remove("hidden");
+                return;
+            }
+
+            // Success - auto login
+            localStorage.setItem("auth_token", data.token);
+            localStorage.setItem("user_email", data.user.email);
+            localStorage.setItem("user_prenom", data.user.prenom || "");
+            localStorage.setItem("user_nom", data.user.nom || "");
+            if (data.user.avatar) {
+                const avatarUrl = `http://127.0.0.1:8090/api/files/users/${data.user.id}/${data.user.avatar}`;
+                localStorage.setItem("user_avatar", avatarUrl);
+            }
+
+            // Redémarrer depuis la page précédente ou /panier
+            const returnTo = sessionStorage.getItem("returnTo") || "/panier";
+            sessionStorage.removeItem("returnTo");
+            window.location.href = returnTo;
+        } catch (err) {
+            signupError.textContent = "Erreur réseau";
+            signupError.classList.remove("hidden");
+        }
+    });
+</script>

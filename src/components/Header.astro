@@ -1,3 +1,7 @@
+---
+
+---
+
 <header
     class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm"
 >
@@ -31,7 +35,10 @@
             >
         </nav>
         <div class="flex items-center gap-4">
-            <button class="relative">
+            <a
+                href="/panier"
+                class="relative hover:opacity-70 transition-opacity"
+            >
                 <svg
                     class="w-6 h-6 text-gray-700"
                     fill="none"
@@ -45,10 +52,39 @@
                         d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
                 </svg>
                 <span
-                    class="absolute -top-2 -right-2 bg-[#c9302c] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+                    id="panier-count"
+                    class="absolute -top-2 -right-2 bg-[#c9302c] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold"
                     >0</span
                 >
-            </button>
+            </a>
+
+            <div id="auth-section" class="flex items-center gap-2 sm:gap-4">
+                <a
+                    id="link-connexion"
+                    href="/connexion"
+                    class="hidden text-[#c9302c] hover:underline font-semibold text-sm sm:text-base"
+                >
+                    Connexion
+                </a>
+                <div id="user-menu" class="items-center gap-1 sm:gap-2 hidden">
+                    <img
+                        id="user-avatar"
+                        src=""
+                        alt="Avatar"
+                        class="hidden w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-[#c9302c]"
+                    />
+                    <span
+                        id="user-display"
+                        class="text-gray-700 font-semibold text-sm sm:text-base"
+                    ></span>
+                    <button
+                        id="btn-logout"
+                        class="text-[#c9302c] hover:underline font-semibold text-sm sm:text-base"
+                    >
+                        Déconnexion
+                    </button>
+                </div>
+            </div>
 
             <button
                 id="mobile-menu-button"
@@ -114,4 +150,79 @@
             }
         });
     }
+
+    // Mettre à jour le compteur du panier
+    const updatePanierCount = () => {
+        const panier = JSON.parse(localStorage.getItem("panier") || "[]");
+        const count = panier.reduce(
+            (sum: number, item: any) => sum + item.quantite,
+            0,
+        );
+        const panierCount = document.getElementById("panier-count");
+        if (panierCount) {
+            panierCount.textContent = count.toString();
+        }
+    };
+
+    updatePanierCount();
+    window.addEventListener("panier-updated", updatePanierCount);
+    window.addEventListener("storage", updatePanierCount);
+
+    // Gestion de l'authentification
+    const linkConnexion = document.getElementById("link-connexion");
+    const userMenu = document.getElementById("user-menu");
+    const userDisplay = document.getElementById(
+        "user-display",
+    ) as HTMLSpanElement;
+    const userAvatar = document.getElementById(
+        "user-avatar",
+    ) as HTMLImageElement;
+    const btnLogout = document.getElementById("btn-logout");
+
+    // Enregistrer la page actuelle avant d'aller à connexion
+    linkConnexion?.addEventListener("click", () => {
+        const currentPage = window.location.pathname + window.location.search;
+        sessionStorage.setItem("returnTo", currentPage);
+    });
+
+    const updateAuthStatus = () => {
+        const token = localStorage.getItem("auth_token");
+        const userPrenom = localStorage.getItem("user_prenom");
+        const userNom = localStorage.getItem("user_nom");
+        const userAvatarUrl = localStorage.getItem("user_avatar");
+
+        if (token && (userPrenom || userNom)) {
+            linkConnexion?.classList.add("hidden");
+            userMenu?.classList.remove("hidden");
+            userMenu?.classList.add("flex");
+
+            // Afficher avatar si existe, sinon prénom+nom
+            if (userAvatarUrl) {
+                userAvatar.src = userAvatarUrl;
+                userAvatar.classList.remove("hidden");
+                userDisplay.textContent = "";
+            } else {
+                userAvatar.classList.add("hidden");
+                userDisplay.textContent =
+                    `${userPrenom || ""} ${userNom || ""}`.trim();
+            }
+        } else {
+            linkConnexion?.classList.remove("hidden");
+            userMenu?.classList.add("hidden");
+            userMenu?.classList.remove("flex");
+        }
+    };
+
+    updateAuthStatus();
+    window.addEventListener("storage", updateAuthStatus);
+
+    // Déconnexion
+    btnLogout?.addEventListener("click", () => {
+        localStorage.removeItem("auth_token");
+        localStorage.removeItem("user_email");
+        localStorage.removeItem("user_prenom");
+        localStorage.removeItem("user_nom");
+        localStorage.removeItem("user_avatar");
+        window.location.href = "/";
+    });
 </script>
