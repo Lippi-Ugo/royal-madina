@@ -1,0 +1,45 @@
+{
+    "name": "Royal Madina",
+    "short_name": "RM",
+    "description": "Pizzeria Royal Madina - Commandez vos pizzas en ligne",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "theme_color": "#c9302c",
+    "background_color": "#f5e6d3",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icon-maskable-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/icon-maskable-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/screenshot-540x720.png",
+            "sizes": "540x720",
+            "type": "image/png",
+            "form_factor": "narrow"
+        }
+    ]
+}

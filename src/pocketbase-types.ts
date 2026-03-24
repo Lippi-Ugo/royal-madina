@@ -191,8 +191,9 @@ export type UsersRecord = {
 	email: string
 	emailVisibility?: boolean
 	id: string
-	name?: string
+	nom?: string
 	password: string
+	prenom?: string
 	tokenKey: string
 	updated: IsoAutoDateString
 	verified?: boolean
