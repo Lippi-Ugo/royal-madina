@@ -42,10 +42,9 @@ const avis = await pb.collection("avis").getFullList({
             const children = carrousel.children;
             const scrollToIndex = (idx) => {
                 if (!children[idx]) return;
-                children[idx].scrollIntoView({
-                    behavior: "smooth",
-                    inline: "center",
-                });
+                const child = children[idx];
+                const left = child.offsetLeft - carrousel.offsetLeft;
+                carrousel.scrollTo({ left, behavior: "smooth" });
             };
             interval = setInterval(() => {
                 current = (current + 1) % children.length;
