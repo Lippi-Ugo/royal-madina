@@ -1,0 +1,20 @@
+---
+interface Props {
+    nom: string;
+    notes: number;
+    commentaire: string;
+}
+const { nom, notes, commentaire } = Astro.props;
+---
+
+<article
+    class="bg-white rounded-2xl shadow-md px-6 py-5 m-2 min-w-55 max-w-[320px] flex flex-col gap-2"
+>
+    <header class="flex justify-between items-center">
+        <strong class="font-semibold text-gray-800">{nom}</strong>
+        <span class="text-yellow-400 text-lg tracking-wide"
+            >{Array(notes).fill("★").join("")}</span
+        >
+    </header>
+    <p class="text-gray-700">{commentaire}</p>
+</article>

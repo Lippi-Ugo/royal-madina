@@ -7,6 +7,8 @@ import FondHero from "../assets/fond-hero.webp";
 import Hero from "../assets/pizza-hero.webp";
 import HalalLogo from "../assets/hallal_logo.svg";
 
+import CarrouselAvis from "../components/CarrouselAvis.astro";
+
 // Récupérer PocketBase depuis le middleware
 const pb = Astro.locals.pb;
 
@@ -506,16 +508,9 @@ const pizzasVenduesMois = itemsCommande.reduce((total, item) => {
 	<!-- Section Avis -->
 	<section class="bg-[#c9302c] py-12">
 		<div class="container mx-auto px-4">
-			<div class="grid md:grid-cols-3 gap-8 text-white text-center">
-				<div class="border-r border-white/30">
-					<h3 class="text-3xl font-bold">AVIS</h3>
-				</div>
-				<div class="border-r border-white/30">
-					<h3 class="text-3xl font-bold">AVIS NUMERO 1</h3>
-				</div>
-				<div>
-					<h3 class="text-3xl font-bold">AVIS NUMERO 1</h3>
-				</div>
+			<h2 class="text-4xl font-bold text-white text-center mb-8">AVIS</h2>
+			<div class="flex justify-center">
+				<CarrouselAvis />
 			</div>
 		</div>
 	</section>

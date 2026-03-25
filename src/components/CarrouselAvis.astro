@@ -1,0 +1,70 @@
+---
+import AvisCard from "../components/AvisCard.astro";
+import type { TypedPocketBase } from "../pocketbase-types";
+
+const pb = Astro.locals.pb as TypedPocketBase;
+const avis = await pb.collection("avis").getFullList({
+    sort: "-created",
+});
+---
+
+<div class="flex justify-center w-full my-8" id="carrousel-avis-root">
+    <div
+        class="flex overflow-x-auto scroll-smooth gap-4 py-2 max-w-[90vw]"
+        data-carrousel
+    >
+        {
+            avis.map((a) => (
+                <AvisCard
+                    nom={
+                        a.prenom && a.nom
+                            ? `${a.prenom} ${a.nom}`
+                            : a.pseudo || "Anonyme"
+                    }
+                    notes={a.notes}
+                    commentaire={a.commentaire}
+                />
+            ))
+        }
+    </div>
+</div>
+
+<script is:inline>
+    // Défilement automatique toutes les 3 secondes
+    if (typeof window !== "undefined") {
+        const root = document.getElementById("carrousel-avis-root");
+        const carrousel = root?.querySelector("[data-carrousel]");
+        let interval = null;
+        if (carrousel) {
+            interval = setInterval(() => {
+                carrousel.scrollBy({ left: 320, behavior: "smooth" });
+                // Si on est presque à la fin, on revient au début
+                if (
+                    carrousel.scrollLeft + carrousel.clientWidth >=
+                    carrousel.scrollWidth - 10
+                ) {
+                    setTimeout(() => {
+                        carrousel.scrollTo({ left: 0, behavior: "smooth" });
+                    }, 600);
+                }
+            }, 3000);
+            // Pause au survol
+            carrousel.addEventListener("mouseenter", () =>
+                clearInterval(interval),
+            );
+            carrousel.addEventListener("mouseleave", () => {
+                interval = setInterval(() => {
+                    carrousel.scrollBy({ left: 320, behavior: "smooth" });
+                    if (
+                        carrousel.scrollLeft + carrousel.clientWidth >=
+                        carrousel.scrollWidth - 10
+                    ) {
+                        setTimeout(() => {
+                            carrousel.scrollTo({ left: 0, behavior: "smooth" });
+                        }, 600);
+                    }
+                }, 3000);
+            });
+        }
+    }
+</script>
