@@ -18,8 +18,8 @@ const details = [boisson.type, boisson.taille].filter(Boolean);
                 record={boisson}
                 field="image"
                 alt={boisson.nom || "Boisson"}
-                classPicture="w-full h-full"
-                classImg="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                classPicture="w-full h-full flex items-center justify-center"
+                classImg="w-full h-full max-h-60 max-w-60 object-contain transition-transform duration-500 group-hover:scale-105"
                 thumb="400x400"
             />
         </div>
