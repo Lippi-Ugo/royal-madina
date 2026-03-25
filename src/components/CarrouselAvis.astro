@@ -47,18 +47,28 @@ const avis = await pb.collection("avis").getFullList({
                 carrousel.scrollTo({ left, behavior: "smooth" });
             };
             interval = setInterval(() => {
-                current = (current + 1) % children.length;
-                scrollToIndex(current);
+                if (current < children.length - 1) {
+                    current++;
+                    scrollToIndex(current);
+                } else {
+                    clearInterval(interval);
+                }
             }, 3000);
             // Pause au survol
             carrousel.addEventListener("mouseenter", () =>
                 clearInterval(interval),
             );
             carrousel.addEventListener("mouseleave", () => {
-                interval = setInterval(() => {
-                    current = (current + 1) % children.length;
-                    scrollToIndex(current);
-                }, 3000);
+                if (current < children.length - 1) {
+                    interval = setInterval(() => {
+                        if (current < children.length - 1) {
+                            current++;
+                            scrollToIndex(current);
+                        } else {
+                            clearInterval(interval);
+                        }
+                    }, 3000);
+                }
             });
         }
     }
