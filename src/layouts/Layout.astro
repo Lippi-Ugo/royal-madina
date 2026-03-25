@@ -68,6 +68,11 @@ const { titre } = Astro.props;
 					class="bg-[#c9302c] text-white px-5 py-2 rounded-lg font-semibold w-full hover:bg-[#a82320] transition"
 					>J'accepte</button
 				>
+				<button
+					id="cookie-refuse"
+					class="bg-gray-200 text-gray-700 px-5 py-2 rounded-lg font-semibold w-full hover:bg-gray-300 transition border border-gray-300"
+					>Je refuse</button
+				>
 			</div>
 		</div>
 
@@ -80,11 +85,12 @@ const { titre } = Astro.props;
 			window.addEventListener("DOMContentLoaded", () => {
 				const popup = document.getElementById("cookie-popup");
 				const accept = document.getElementById("cookie-accept");
+				const refuse = document.getElementById("cookie-refuse");
 				// Affiche le popup uniquement à la toute première visite (pas à chaque reload)
 				if (
 					popup &&
 					!sessionStorage.getItem("cookie_popup_shown") &&
-					!localStorage.getItem("cookie_consent")
+					localStorage.getItem("cookie_consent") === null
 				) {
 					popup.classList.remove("hidden");
 					popup.classList.add("flex");
@@ -92,6 +98,13 @@ const { titre } = Astro.props;
 				}
 				accept?.addEventListener("click", () => {
 					localStorage.setItem("cookie_consent", "1");
+					if (popup) {
+						popup.classList.add("hidden");
+						popup.classList.remove("flex");
+					}
+				});
+				refuse?.addEventListener("click", () => {
+					localStorage.setItem("cookie_consent", "0");
 					if (popup) {
 						popup.classList.add("hidden");
 						popup.classList.remove("flex");
