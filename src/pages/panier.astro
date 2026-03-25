@@ -20,7 +20,7 @@ import FondHero from "../assets/fond-hero.webp";
                 <div class="lg:col-span-2">
                     <div
                         id="panier-vide"
-                        class="text-center py-12 bg-white rounded-3xl border-2 border-[#d4b896]"
+                        class="text-center py-8 bg-white rounded-3xl border-2 border-[#d4b896] max-w-full w-full mx-auto sm:py-12"
                     >
                         <svg
                             class="w-16 h-16 mx-auto mb-4 text-gray-400"
@@ -51,7 +51,7 @@ import FondHero from "../assets/fond-hero.webp";
 
                 <div class="lg:col-span-1">
                     <div
-                        class="bg-white rounded-3xl border-2 border-[#d4b896] p-8 sticky top-8"
+                        class="bg-white rounded-3xl border-2 border-[#d4b896] p-4 sm:p-8 max-w-full w-full mx-auto sticky top-8"
                     >
                         <h3 class="text-2xl font-bold mb-6">RÉSUMÉ</h3>
 
@@ -161,26 +161,26 @@ import FondHero from "../assets/fond-hero.webp";
             panierItems!.innerHTML = items
                 .map(
                     (item, idx) => `
-				<div class="bg-white rounded-3xl border-2 border-[#d4b896] p-6 flex justify-between items-center">
-					<div class="flex-1">
-						<h4 class="text-xl font-bold text-gray-900">${item.nom}</h4>
-						<p class="text-gray-600 text-sm">${item.type === "pizza" ? "Pizza" : "Boisson"}</p>
-					</div>
-					<div class="flex items-center gap-4">
-						<div class="flex items-center gap-2 bg-[#f5e6d3] rounded-full px-4 py-2">
-							<button class="decrement-btn text-[#c9302c] font-bold" data-index="${idx}">−</button>
-							<span class="font-bold w-8 text-center">${item.quantite}</span>
-							<button class="increment-btn text-[#c9302c] font-bold" data-index="${idx}">+</button>
-						</div>
-						<span class="font-bold text-lg w-20 text-right">${(item.prix * item.quantite).toFixed(2)}€</span>
-						<button class="delete-btn text-gray-400 hover:text-[#c9302c] transition-colors" data-index="${idx}">
-							<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-							</svg>
-						</button>
-					</div>
-				</div>
-			`,
+                    <div class="bg-white rounded-3xl border-2 border-[#d4b896] p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-center max-w-full w-full mx-auto">
+                        <div class="flex-1 w-full">
+                            <h4 class="text-xl font-bold text-gray-900">${item.nom}</h4>
+                            <p class="text-gray-600 text-sm">${item.type === "pizza" ? "Pizza" : "Boisson"}</p>
+                        </div>
+                        <div class="flex items-center gap-4 mt-4 sm:mt-0">
+                            <div class="flex items-center gap-2 bg-[#f5e6d3] rounded-full px-4 py-2">
+                                <button class="decrement-btn text-[#c9302c] font-bold" data-index="${idx}">−</button>
+                                <span class="font-bold w-8 text-center">${item.quantite}</span>
+                                <button class="increment-btn text-[#c9302c] font-bold" data-index="${idx}">+</button>
+                            </div>
+                            <span class="font-bold text-lg w-20 text-right">${(item.prix * item.quantite).toFixed(2)}€</span>
+                            <button class="delete-btn text-gray-400 hover:text-[#c9302c] transition-colors" data-index="${idx}">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                `,
                 )
                 .join("");
 
