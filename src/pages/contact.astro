@@ -6,9 +6,10 @@ import Layout from "../layouts/Layout.astro";
     <section class="max-w-2xl mx-auto py-16 px-4">
         <h1 class="text-4xl font-bold mb-8 text-center">Contact</h1>
         <form
-            action="https://formspree.io/f/mdapnzre"
-            method="POST"
+            id="contact-form"
             class="space-y-6 bg-white p-8 rounded-lg shadow-lg"
+            method="POST"
+            action="https://formspree.io/f/mdapnzre"
         >
             <div>
                 <label for="name" class="block font-semibold mb-2">Nom</label>
@@ -44,12 +45,45 @@ import Layout from "../layouts/Layout.astro";
                 ></textarea>
             </div>
             <button
+                id="submit-btn"
                 type="submit"
                 class="w-full bg-[#c9302c] hover:bg-[#a02622] text-white font-bold py-3 rounded-full transition-colors"
+                >Envoyer</button
             >
-                Envoyer
-            </button>
+            <div id="form-status" class="text-sm text-center mt-3"></div>
         </form>
+        <script type="module">
+            const form = document.getElementById("contact-form");
+            const status = document.getElementById("form-status");
+            const btn = document.getElementById("submit-btn");
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                status.textContent = "";
+                btn.disabled = true;
+                btn.textContent = "Envoi...";
+                try {
+                    const data = new FormData(form);
+                    const res = await fetch(form.action, {
+                        method: "POST",
+                        body: data,
+                        headers: { Accept: "application/json" },
+                    });
+                    if (res.ok) {
+                        status.textContent = "Message envoyé — merci !";
+                        form.reset();
+                    } else {
+                        const json = await res.json();
+                        status.textContent =
+                            json?.error || "Erreur lors de l'envoi";
+                    }
+                } catch (err) {
+                    status.textContent = "Erreur réseau — réessayez plus tard.";
+                } finally {
+                    btn.disabled = false;
+                    btn.textContent = "Envoyer";
+                }
+            });
+        </script>
         <p class="mt-6 text-center text-gray-500 text-sm">
             Ce formulaire utilise <a
                 href="https://formspree.io/"
