@@ -13,63 +13,72 @@ const avis = await pb.collection("avis").getFullList({
         class="flex overflow-x-auto scroll-smooth gap-4 py-2 max-w-[90vw] snap-x snap-mandatory"
         data-carrousel
     >
-        {
-            avis.map((a, i) => (
-                <div class="snap-center shrink-0">
-                    <AvisCard
-                        nom={
-                            a.prenom && a.nom
-                                ? `${a.prenom} ${a.nom}`
-                                : a.pseudo || "Anonyme"
-                        }
-                        notes={a.notes}
-                        commentaire={a.commentaire}
-                    />
-                </div>
-            ))
-        }
+        {/* Duplique les 2 premiers avis à la fin pour la boucle */}
+        {avis.map((a, i) => (
+            <div class="snap-center shrink-0" key={"avis-"+i}>
+                <AvisCard
+                    nom={a.prenom && a.nom ? `${a.prenom} ${a.nom}` : a.pseudo || "Anonyme"}
+                    notes={a.notes}
+                    commentaire={a.commentaire}
+                />
+            </div>
+        ))}
+        {avis.slice(0,2).map((a, i) => (
+            <div class="snap-center shrink-0" key={"avis-dup-"+i}>
+                <AvisCard
+                    nom={a.prenom && a.nom ? `${a.prenom} ${a.nom}` : a.pseudo || "Anonyme"}
+                    notes={a.notes}
+                    commentaire={a.commentaire}
+                />
+            </div>
+        ))}
     </div>
 </div>
 
 <script is:inline>
-    // Carrousel auto-scroll avec scroll snap et centrage
-    if (typeof window !== "undefined") {
-        const root = document.getElementById("carrousel-avis-root");
-        const carrousel = root?.querySelector("[data-carrousel]");
-        let interval = null;
-        let current = 0;
-        if (carrousel) {
-            const children = carrousel.children;
-            const scrollToIndex = (idx) => {
-                if (!children[idx]) return;
-                const child = children[idx];
-                const left = child.offsetLeft - carrousel.offsetLeft;
-                carrousel.scrollTo({ left, behavior: "smooth" });
-            };
+// Carrousel infini avec duplication et recentrage
+if (typeof window !== "undefined") {
+    const root = document.getElementById("carrousel-avis-root");
+    const carrousel = root?.querySelector("[data-carrousel]");
+    let interval = null;
+    let current = 0;
+    const avisCount = (window.ASTRO_AVIS_COUNT = (typeof avis !== 'undefined' ? avis.length : 0));
+    if (carrousel && avisCount > 0) {
+        const children = carrousel.children;
+        const scrollToIndex = (idx, smooth = true) => {
+            if (!children[idx]) return;
+            const child = children[idx];
+            const left = child.offsetLeft - carrousel.offsetLeft;
+            carrousel.scrollTo({ left, behavior: smooth ? "smooth" : "auto" });
+        };
+        // Démarre sur le vrai premier avis
+        scrollToIndex(0, false);
+        interval = setInterval(() => {
+            current++;
+            scrollToIndex(current);
+            // Si on arrive sur le 2e duplicata, on "téléporte" au vrai début
+            if (current === avisCount) {
+                setTimeout(() => {
+                    scrollToIndex(0, false);
+                    current = 0;
+                }, 350); // attend la fin du scroll smooth
+            }
+        }, 3000);
+        // Pause au survol
+        carrousel.addEventListener("mouseenter", () => clearInterval(interval));
+        carrousel.addEventListener("mouseleave", () => {
+            if (interval) clearInterval(interval);
             interval = setInterval(() => {
-                if (current < children.length - 1) {
-                    current++;
-                    scrollToIndex(current);
-                } else {
-                    clearInterval(interval);
+                current++;
+                scrollToIndex(current);
+                if (current === avisCount) {
+                    setTimeout(() => {
+                        scrollToIndex(0, false);
+                        current = 0;
+                    }, 350);
                 }
             }, 3000);
-            // Pause au survol
-            carrousel.addEventListener("mouseenter", () =>
-                clearInterval(interval),
-            );
-            carrousel.addEventListener("mouseleave", () => {
-                if (current < children.length - 1) {
-                    interval = setInterval(() => {
-                        if (current < children.length - 1) {
-                            current++;
-                            scrollToIndex(current);
-                        } else {
-                            clearInterval(interval);
-                        }
-                    }, 3000);
-                }
-            });
-        }
+        });
     }
+}
 </script>
